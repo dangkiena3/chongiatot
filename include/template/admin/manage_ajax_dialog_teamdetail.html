@@ -1,0 +1,34 @@
+<div id="order-pay-dialog" class="order-pay-dialog-c" style="width:580px;">
+	<h3><span id="order-pay-dialog-close" class="close" onclick="return X.boxClose();">Đóng</span>Chi tiết Deal</h3>
+	<div style="overflow-x:hidden;padding:10px;">
+	<table width="96%" align="center" class="coupons-table">
+		<tr><td width="122"><b>Tiêu đề Deal </b></td><td width="393"><b>{$team['product']}</b></td></tr>
+		<tr><td><b>Thời gian</b></td><td>Bắt đầu: <b>${date('d-m-Y',$team['begin_time'])}</b> - Kết thúc: <b>${date('d-m-Y',$team['end_time'])}</b></td></tr>
+
+		<tr><td><b>Trạng thái </b></td>
+		<td><span style="color:#F00;font-weight:bold;">${state_explain($team)}</span><!--{if $team['close_time']&&$team['now_number']>=$team['min_number']&&$team['delivery']!='express'}-->&nbsp;&nbsp;<span style="color:#F8C;font-weight:bold;"><!--{if ($team['teamcoupon'])}-->&lt;{$INI['system']['couponname']}Chưa kết thúc&gt;<!--{else}-->&lt;Đang giao phiếu {$INI['system']['couponname']}&gt;<!--{/if}--></span><!--{/if}--></td></tr>
+		<tr><td><b>Số lượng </b></td><td>Thấp nhất <b>{$team['min_number']}</b> - Cao nhất <b>${$team['max_number']==0?'không giới hạn':$team['max_number']}</b></td></tr>
+		<tr>
+		  <td><b>Giá</b></td><td>Giá gốc&nbsp;<b>${formatMoney($team['market_price'])}</b>&nbsp;<b>{$currency}</b>&nbsp;-&nbsp;Giá bán <b>${formatMoney($team['team_price'])}</b>&nbsp;<b>{$currency}</b></td></tr>
+		<tr><th colspan="2"><hr/></th><td width="7"></td>
+		<tr>
+		  <td><b>Thống kê mua</b></td>
+		  <td><b>Tổng số mua hiện tại&nbsp;{$team['now_number']}</b>,có&nbsp;<b>{$paycount}</b>&nbsp;người mua với&nbsp;<b>{$buycount} </b>lần mua.</td></tr>
+		<tr>
+		  <td><b>Thanh toán</b></td>
+		  <td>Thanh toán online:<b> ${formatMoney($onlinepay)} {$currency}</b>&nbsp;&nbsp;&nbsp;&nbsp;Thanh toán bằng thẻ: <b>${formatMoney($creditpay)} </b><b>{$currency}</b></td></tr>
+		<tr>
+		  <td><b>Số dư tài khoản</b></td>
+		  <td>Tổng:<b> ${formatMoney($onlinepay+$creditpay)}</b>&nbsp;<b>{$currency}</b>&nbsp;&nbsp;&nbsp;&nbsp;Credit vouchers: <b>${formatMoney($cardpay)}</b>&nbsp;<b>{$currency}</b></td></tr>
+	<!--{if $team['needline']}-->
+		<tr><th colspan="2"><hr/></th></td>
+		<tr><td colspan="2">
+			<button style="padding:0;" id="dialog_subscribe_button_id" onclick="if(confirm('Tiến trình gửi email cho khách hàng sẽ tiến hành, xin hãy chờ và đồng ý để tiếp tục')){this.disabled=true;return X.misc.noticenext({$team['id']},0);}">Gửi email khách hàng&nbsp;(<span id="dialog_subscribe_count_id">0</span>/{$subcount})</button>&nbsp;
+			<!--{if $team['noticesmssubscribe']}--><button style="padding:0;" id="dialog_smssubscribe_button_id" onclick="if(confirm('The process of sending text messages, please be patient, agreed to do ')){this.disabled=true;return X.misc.noticenextsms({$team['id']},0);}">Gửi SMS khách hàng&nbsp;(<span id="dialog_smssubscribe_count_id">0</span>/{$smssubcount})</button>&nbsp;<!--{/if}-->
+			<!--{if $team['noticesms']}--><button id="dialog_sms_button_id" onclick="if(confirm('The process of sending text messages, please be patient, agreed to do？')){this.disabled=true;return X.misc.noticesms({$team['id']},0);}">Tin nhắn đã gửi trong coupon&nbsp;(<span id="dialog_sms_count_id">0</span>/{$couponcount})</button>&nbsp;<!--{/if}-->
+			<!--{if $team['teamcoupon']}--><button onclick="this.disabled=true;return X.manage.teamcoupon({$team['id']});">Gửi vé tự động&nbsp;({$couponcount}/{$buycount})</button>&nbsp;<!--{/if}-->
+		</td></tr>
+	<!--{/if}-->
+	</table>
+	</div>
+</div>

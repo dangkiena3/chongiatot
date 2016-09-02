@@ -1,0 +1,14 @@
+<div id="order-pay-dialog" class="order-pay-dialog-c" style="width:600px;">
+	<h3>Chi tiết đơn hàng #{$payment['code']}<span id="order-pay-dialog-close" class="close" onclick="return X.boxClose();">Đóng</span></h3>
+	<div style="overflow-x:hidden;padding:10px;" id="dialog-order-id" oid="{$payment['id']}">
+	<table width="96%" align="center" class="coupons-table">
+		<tr><td width="180"><b>ID：</b></td><td>{$payment['id']}</td></tr>
+		<tr><td><b>Số tài khoản ngân hàng</b></td><td>{$payment['bank_number']}</td></tr>
+		<tr><td><b>Tên tài khoản</b></td><td>{$banks['bankname_short']} - {$banks['bankname_long']}</td></tr>
+		<tr><td><b>Người gửi</b></td><td>{$payment['sender']}</td></tr>
+		<tr><td><b>Điện thoại</b></td><td>{$payment['tel']}</td></tr>
+		<tr><td><b>Thời gian</b></td><td>{$payment['create_time']}</td></tr>
+		<tr><td><b>Ghi chú</b></td><td>{$payment['comment']}</td></tr>
+		<tr><td><b>Trạng thái</b></td><td>${$payment['flag']==1 ? "<img src='../../static/img/new_icon.gif'>" : "<img src='../../static/img/go_24.png'>"}</td></tr>
+	</div>
+</div>

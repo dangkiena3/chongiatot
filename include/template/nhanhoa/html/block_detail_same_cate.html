@@ -1,0 +1,21 @@
+<!--{loop $team_others $one}-->
+<div class="cate_product_item2">
+    <div class="cate_product_item_img2">
+        <a href="${rewrite_team_id($one['id'])}"><img src="${team_image($one['image'])}" alt="" /></a>
+    </div>
+    <div class="cate_product_item_title2">
+        <a href="${rewrite_team_id($one['id'])}">{$one['product']}</a>
+    </div>
+    <div class="cate_product_item_info2">
+        <span class="deal_common_info sale_prc">${formatMoney($one['team_price'])}</span> 
+        <span class="deal_common_info discount_percent"><span>{$one['percent']}%</span></span>
+        <span class="deal_common_info deal_number_buy"><span>{$one['now_number']}</span> người đã mua</span>
+    </div>
+</div>
+<!--{/loop}-->
+<div class="clear"></div>
+
+<div npage="${$page+1}" class="divLoadingMore">
+    <div class="imgLoading"><img width="20px" alt="loading..." src="{$template_path}/ajax-loader.gif" /></div>
+    <div class="title">Xem Thêm</div>
+</div>

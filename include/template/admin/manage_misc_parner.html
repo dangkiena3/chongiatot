@@ -1,0 +1,44 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_misc('parner')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>Quản trị đối tác</h2>
+				</div>
+                <div class="sect">
+                <!-- form tạo user đối tác -->
+                <form action="parner.php" method="post">
+                <table cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+                	<tr><td>Tài khoản</td><td><input maxlength="20" type="text" name="username" size="30"></td></tr>
+                	<tr><td>Mật khẩu</td><td><input maxlength="20" type="password" name="password" size="30"></td></tr>
+                	<tr><td>Nhập lại mật khẩu</td><td><input maxlength="20" type="password" name="repassword" size="30"></td></tr>
+                	<tr><td>Tên đối tác</td><td><input maxlength="100" type="text" name="bizname" size="50"></td></tr>
+                	<tr><td colspan='2'><input class='formbutton' type="submit" value='Create'>  <input class='formbutton' type="reset" value='Cancel'></tr>
+                </table>
+                </form>
+                <!-- end from đối tác -->
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr><th width="50">Tài khoản</th><th width="160">Tên đối tác</th><th width="200">Người liên hệ</th><th width="200">Điện thoại</th><th width="120">Di động</th></tr>
+					<!--{loop $asks $index $one}-->
+					
+					<!--{/loop}-->
+					<tr><td colspan="6">{$pagestring}</tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

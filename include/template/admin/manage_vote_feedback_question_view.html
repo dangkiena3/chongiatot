@@ -1,0 +1,57 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="help">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_vote('feedback')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>Chi tiết phản hồi "{$question['title']}"</h2>
+					<ul class="filter">
+						<li><a href="feedback.php?action=question_list">Danh sách các kiểm tra được tiến hành</a></li>
+						<li><a href="feedback.php?action=question_list&show_all=1">Danh sách tất cả câu hỏi</a></li>
+						<li><a href="feedback.php?action=list">Danh sách chi tiết phản hồi</a></li>
+					</ul>
+				</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr>
+						<th width="40">ID</th>
+						<th width="300">Tên</th>
+						<th width="100">Phản hồi</th>
+						<th width="100">Trạng thái</th>
+						<th width="100">Sắp xếp</th>
+						<th width="50">Thao tác</th>
+					</tr>
+					<!--{if !$options_list}-->
+					<tr>
+						<td colspan=5 align="center">Không có tuỳ chọn</td>
+					</tr>
+					<!--{/if}-->
+					<!--{loop $options_list $index $one}-->
+						<tr ${$index%2?'':'class="alt"'} id="order-list-id-{$one['id']}">
+							<td>{$one['id']}</td>
+							<td>${$one['is_input'] ? '<font color="red">'.$one['name'].'</font>' : $one['name']}</td>
+							<td>{$one['feedback']}</td>
+							<td>${$one['is_show'] ? 'Hiển thị' : 'ẩn'}</td>
+							<td>{$one['order']}</td>
+							<td>${$one['is_input'] ? '<a href="feedback.php?action=input_list&options_id='.$one['id'].'">Kiểm tra</a>' : ''}</td>
+						</tr>
+						${$one['is_br'] ? '<tr><td colspan=5>&nbsp;</td></tr>' : ''}
+					<!--{/loop}-->
+                    </table>
+				</div>
+			</div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include footer}-->

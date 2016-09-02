@@ -1,0 +1,1209 @@
+﻿ul,li {
+    list-style: none
+}
+
+.wrap_cart {
+    width: 780px;
+    float: left;
+	background:#FFF;
+}
+
+.cart_top {
+    width: 100%;
+    float: left;
+    height: 36px;
+    background: url(images/cart_title_top_bg.png) no-repeat top center
+}
+
+.cart_top_thanhtoan {
+    background-position: 0 -36px
+}
+
+.cart_top_camon {
+    background-position: 0 -72px
+}
+
+.cart_content {
+    width: 950px;
+	float: left;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+.cart_title {
+    width: 100%;
+
+}
+.hrl{
+	padding-bottom: 10px;
+	border-bottom: 3px double #e4e4e4;
+}
+.cart_title span {
+    float: left
+}
+
+.c_title-ico {
+}
+
+.c_title_text {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #D00;
+    font-weight: bold;
+    margin-top: 5px
+}
+
+.cart_content_title {
+    width: 100%;
+    float: left;
+    background: #881687;
+	color:#FFF;
+	text-transform:uppercase;
+    height: 40px;
+    margin-top: 10px
+}
+
+.cart_content_title span {
+    float: left;
+    margin-top: 12px;
+    font-size: 16px;
+    text-align: center
+}
+
+.title-del {
+    width: 50px;
+    margin-left: 10px
+}
+
+.title-product {
+    width: 510px
+}
+.title-product img{
+	vertical-align:middle;
+	margin-left:10px;
+}
+.title-product a {
+    color: #595959;
+    font-size: 18px;
+}
+
+.title-product a:hover {
+    color: #636
+}
+
+.title-price {
+    width: 120px
+}
+
+.title-soluong {
+    width: 120px
+}
+
+.title-thanhtien {
+    width: 120px
+}
+
+.title-trasau {
+    width: 105px
+}
+
+.coupon_code {
+    margin-left: 5px;
+    margin-top: 30px;
+    float: left
+}
+
+.coupon_txt {
+    margin-left: 5px;
+    margin-top: 30px
+}
+
+.cart_listitem {
+    width: 925px;
+    margin-left: 10px;
+    float: left;
+    border-left: solid 1px #e1e1e1;
+    border-bottom: solid 1px #e1e1e1;
+    border-right: solid 2px #e1e1e1;
+    background-color: #f9f9f9
+}
+
+.cart_item {
+    width: 930px;
+    float: left
+}
+
+.cart_item .item_row {
+    float: left;
+    height: 80px;
+    border-left: solid 1px #e1e1e1;
+    border-bottom: solid 1px #e1e1e1
+}
+
+.cart_item .item_row select {
+    border: solid 1px #e1e1e1;
+    background-color: #fff;
+    width: 60px;
+    cursor: pointer;
+    text-align: center
+}
+
+.cart_item span {
+    float: left;
+    margin-top: 32px;
+    font-size: 16px;
+	font-weight:bold;	
+    text-align: center
+}
+
+.sum_item {
+    float: left;
+    width: 100%;
+    height: 35px;
+    border-bottom: solid 1px #ccc;
+    border-left: solid 1px #e1e1e1
+}
+
+.sum_item p {
+    width: 100%;
+    float: left;
+	font-size:16px;
+    margin-top: 8px
+}
+
+.sum_item_title {
+    float: left;
+    width: 803px;
+    text-align: right;
+    height: 35px
+}
+
+.sum_item_value {
+    float: left;
+    border-left: solid 1px #e1e1e1;
+    height: 35px;
+    width: 120px;
+    text-align: center
+}
+
+.sum_item_value_price {
+    float: left;
+    border-left: solid 1px #e1e1e1;
+    height: 35px;
+    width: 109px;
+    text-align: center
+}
+
+.sum_item_value_trasau {
+    float: left;
+    border-left: solid 1px #e1e1e1;
+    height: 35px;
+    width: 100px;
+    text-align: center
+}
+
+.shipping_cost_trasau {
+}
+
+.sum_item_value_total {
+    float: left;
+    border-left: solid 1px #e1e1e1;
+    height: 35px;
+    width: 135px;
+    text-align: center
+}
+
+.continous-shop {
+}
+
+.btn_ctn_b {
+    float: left;
+    margin-left: 55px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff
+}
+
+.btn_ctn_b a {
+    text-decoration: none;
+    text-transform: none;
+    color: inherit
+}
+
+.btn_ctn_b a:hover {
+    color: #1aa9d3
+}
+
+.shadow {
+    -moz-box-shadow: 5px 5px 5px #fff;
+    -webkit-box-shadow: 5px 5px 5px #fff
+}
+
+.cart_login {
+    width: 100%;
+    float: left;
+    margin-top: 15px;
+    margin-left: 10px
+}
+
+.info_box {
+    width: 100%;
+    float: left;
+    margin-top: 10px
+}
+
+.info_box_top {
+    width: 100%;
+    float: left;
+    height: 3px
+}
+
+.info_box_top img {
+    float: left
+}
+
+.info_box_content {
+    float: left;
+    width: 100%
+}
+
+.info_box_bottom {
+    width: 100%;
+    float: left;
+    height: 2px
+}
+
+.info_box_bottom img {
+    float: left
+}
+
+.cart_regist {
+    width: 100%;
+    float: left;
+    margin-top: 15px;
+    margin-left: 10px;
+    display: none
+}
+
+.login_user {
+    float: left;
+    width: 390px;
+    margin-top: 25px
+}
+
+.email_lg {
+    width: 60px;
+    float: left;
+    margin-left: 10px;
+    text-align: right
+}
+
+.email_pass_t {
+    font-size: 11pt;
+    color: #595959;
+    margin-top: 3px;
+    word-spacing: .5px
+}
+
+.email_input {
+    float: left;
+    margin-left: 5px
+}
+
+.email_input input {
+    width: 300px;
+    height: 22px;
+    border: solid 1px #e1e1e1;
+    background-color: #fff
+}
+
+.login_pass {
+    float: left;
+    width: 260px;
+    margin-top: 25px
+}
+
+.pass_lg {
+    float: left;
+    width: 80px;
+    text-align: right
+}
+
+.pass_input {
+    float: left;
+    margin-left: 5px
+}
+
+.pass_input input {
+    width: 165px;
+    height: 22px;
+    border: solid 1px #e1e1e1;
+    background-color: #fff
+}
+
+.error_email {
+    float: left;
+    font-size: 12px;
+    color: red;
+    margin-left: 80px
+}
+
+.error_pass {
+    float: left;
+    font-size: 12px;
+    color: red;
+    margin-left: 80px
+}
+
+.regist_note {
+    float: left;
+    width: 630px;
+    height: 25px;
+    border: solid 1px #e1e1e1;
+    background-color: #d7a01f;
+    margin-left: 30px;
+    display: none
+}
+
+.birth_ddl {
+}
+
+.cart_rg_requie {
+    color: red
+}
+
+.login_control {
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.loss_password {
+    float: left;
+    margin-left: 405px
+}
+
+.loss_password a {
+    text-transform: none;
+    text-decoration: none;
+    color: #62a60b;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 6px;
+    float: left
+}
+
+.loss_password a:hover {
+    color: red
+}
+
+.loginbtn {
+    float: left;
+    margin-left: 20px;
+    background: url(images/btn_customer_bg.png) no-repeat left top;
+    width: 125px;
+    height: 28px
+}
+
+.loginbtn:hover {
+    cursor: pointer;
+    background-position: 0 -28px
+}
+
+.loginbtn a {
+    float: left;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: 800
+}
+
+.loginbtn a:hover {
+}
+
+.basic_info {
+    width: 330px;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 20px
+}
+
+.regist_item {
+    width: 100%;
+    float: left;
+    margin-top: 10px
+}
+
+.regist_title {
+    width: 115px;
+    float: left;
+    text-align: right;
+    margin-top: 3px
+}
+
+.regist_input {
+    float: left;
+    margin-left: 6px
+}
+
+.regist_input input {
+    width: 200px;
+    height: 25px;
+    border: solid 1px #e1e1e1;
+    padding: 0 2px
+}
+
+.regist_control {
+    width: 100%;
+    float: left;
+    margin-top: 0;
+    margin-bottom: 10px
+}
+
+.regist_btn {
+    float: left;
+    margin-left: 190px;
+    background: url(images/btn_customer_bg.png) repeat-y left top;
+    width: 125px;
+    height: 28px
+}
+
+.regist_btn:hover {
+    cursor: pointer;
+    background-position: 0 -28px
+}
+
+.regist_btn a {
+    float: left;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+    margin-top: 3px;
+    font-weight: 800
+}
+
+.regist_btn a:hover {
+}
+
+.fb_loading {
+    float: left;
+    margin-left: 120px;
+    height: 28px;
+    width: 220px
+}
+
+.select_gender {
+    border: solid 1px #e1e1e1;
+    height: 25px;
+    width: 100px;
+    cursor: pointer
+}
+
+.regist_input select {
+    border: solid 1px #e1e1e1;
+    height: 25px;
+    cursor: pointer;
+    padding-top: 3px;
+    padding-left: 5px
+}
+
+.regist_input select option {
+    padding-left: 5px
+}
+
+.cart_address {
+    width: 760px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 20px
+}
+
+.address_one {
+    width: 370px;
+    float: left;
+    margin-top: 10px
+}
+.address_one_1 {
+    width: 370px;
+	height:32px;
+    float: left;
+	display:block;
+	margin-top: 10px
+}
+.add_title {
+    float: left;
+    width: 100px;
+	height:32px;
+	line-height:32px;
+    text-align: right;
+
+}
+
+.add_input {
+    float: left;
+    margin-left: 5px
+}
+
+.add_input input {
+    border: solid 1px #89b4d6;
+    height: 32px;
+    padding: 0 2px;
+    width: 230px
+}
+.add_input textarea {
+    border: solid 1px #89b4d6;
+	position:absolute;
+	height:70px;
+	width:235px;
+}
+#cpt_img{
+	border:1px dashed #F30;
+}
+.address_one_ad{
+	margin-top:10px;
+	float:left;
+}
+.add_input select {
+    border: solid 1px #89b4d6;
+    height: 32px;
+    cursor: pointer
+}
+
+.cart_thanhtoan {
+    width: 760px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 20px
+}
+
+.thanhtoan_row {
+    float: left;
+    width: 100%;
+    border-bottom: solid 1px #e1e1e1;
+    height: 80px
+}
+
+.up_quantity {
+    width: 16px;
+    height: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: -6px
+}
+
+.down_quantity {
+    width: 16px;
+    height: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 6px
+}
+
+.thanhtoan_list {
+    float: left;
+	margin-left:50px;
+	border:1px solid #89b4d6;
+	width:664px;
+}
+
+.thanhtoan_list li {
+    float: left;
+    width: 662px;
+    padding-left: 2px;
+    border-bottom: solid 1px #89b4d6;
+}
+
+
+.thanhtoan_list li:hover {
+	background:url(images/v2/arrow_select.png) no-repeat right center;
+    cursor: pointer
+}
+
+.cmoney_payment {
+    display: none
+}
+
+.coupon_ct {
+    float: left;
+    width: 100%;
+    margin-top: 20px
+}
+
+.coupon_note {
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #e23030;
+    font-size: 14px;
+    font-weight: bold
+}
+
+.coupon_input {
+    float: left;
+    margin-left: 15px;
+    margin-top: 3px
+}
+
+.coupon_input input {
+    border: 1px solid #454545;
+    height: 20px
+}
+
+.check_coupon {
+    float: left;
+    width: 100px;
+    height: 29px;
+    background: url(images/check_coupon_bg.png) no-repeat 0 0;
+    margin-left: 35px
+}
+
+.check_coupon:hover {
+    background-position: 0 -29px;
+    cursor: pointer
+}
+
+.notice_coupon {
+    width: 660px;
+    float: left;
+    border: solid 1px #e6db55;
+    border-radius: 3px;
+    height: 30px;
+    background-color: #fffbcc;
+    margin-left: 10px;
+    margin-top: 15px;
+    display: none
+}
+
+.icon_rs {
+    float: left;
+    margin-left: 5px;
+    margin-top: 3px
+}
+
+.content_cp_rs {
+    float: left;
+    margin-left: 10px;
+    margin-top: 6px;
+    font-size: 13px
+}
+
+.close_noteice_cp {
+    float: right;
+    width: 12px;
+    height: 12px;
+    background: url(images/popupbg.gif) no-repeat 1px -1px;
+    margin-right: 3px
+}
+
+.close_noteice_cp:hover {
+    background-position: -15px -1px;
+    cursor: pointer
+}
+
+.thanhtoan_col1 {
+    width: 70px;
+    float: left;
+    height: 100%
+}
+
+.thanhtoan_col2 {
+    width: 570px;
+    float: left;
+    height: 100%
+}
+
+.thanhtoan_check {
+    float: left;
+    width: 15px;
+    text-align: center;
+	margin-top:10px;
+
+}
+
+.thanhtoan_radio {
+    cursor: pointer
+}
+
+.thanhtoan_ico {
+    float: left;
+    margin-top: 10px
+}
+
+.thanhtoan_title {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #595959;
+	width:540px;
+}
+
+.thanhtoan_control {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+	margin-left:60px;
+}
+
+.finish_order {
+
+}
+.form-subtitle {
+	color: #787878;
+	font-size: 13px;
+	padding-top: 1px;
+	font-style: normal;
+	display: block;
+}
+.btn_finish_o {
+    float: left;
+    margin-left: 300px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold
+}
+
+.btn_finish_o a {
+    color: inherit;
+    text-decoration: none;
+    text-transform: none
+}
+
+.btn_finish_o a:hover {
+    color: #5b9e04
+}
+
+.thanhtoan_viewdetail {
+    display: block;
+    float: left;
+    margin-top: 10px;
+    margin-left: 25px;
+	margin-bottom:10px;
+}
+
+.thanks_wrap {
+    width: 657px;
+    height: 260px;
+    float: left;
+    background: url(images/thankyou_bg.png) no-repeat center top;
+    margin-left: 20px;
+    margin-top: 30px
+}
+
+.thank_content {
+    float: left;
+    width: 550px;
+    margin-left: 20px;
+    margin-top: 120px
+}
+
+.thank_row {
+    width: 100%;
+    float: left;
+    margin-top: 5px
+}
+
+.thanhtoan_row:hover {
+    cursor: pointer
+}
+
+.thanhtoan_yellow {
+    background: url(images/v2/checked.png) no-repeat right center;
+}
+
+.thank_r_ico {
+    width: 20px;
+    float: left;
+    margin-top: 2px
+}
+
+.thank_r_title {
+    float: left;
+    font-size: 14px;
+    color: #1e442e
+}
+
+.cart_new_content {
+    float: left;
+    margin-top: 20px;
+    width: 100%
+}
+
+.new_cart_content_title {
+    background: url("images/top_titlecart_bg.png") no-repeat scroll center top transparent;
+    float: left;
+    height: 44px;
+    width: 100%
+}
+
+.cart_new_row {
+    float: left
+}
+
+.thanhtoan_new_content {
+    background-color: #f9f9f9;
+    border-bottom: 0 solid #e1e1e1;
+    border-left: 1px solid #e1e1e1;
+    border-right: 2px solid #e1e1e1;
+    float: left;
+    margin-left: 10px;
+    width: 665px
+}
+
+.new_cart_content_title_rdo {
+    float: left;
+    margin-top: 15px;
+    margin-left: 10px;
+    cursor: pointer
+}
+
+.new_cart_content_title_text {
+    float: left;
+    line-height: 42px;
+    margin-left: 10px;
+    color: #fff;
+    font-size: 13pt;
+    font-weight: bold
+}
+
+.cart_requie {
+    color: red
+}
+
+.thong_tin_cua_ban {
+    float: left;
+    line-height: 25px;
+    font-size: 14px;
+    width: 500px;
+    margin: 5px 0 10px 50px;
+    font-weight: bold
+}
+
+.thanh_toan_item {
+    float: left;
+    line-height: 28px;
+    margin-bottom: 5px
+}
+
+.thanhtoan_it_l {
+    width: 100px;
+    float: left;
+    text-align: right;
+    line-height: 28px
+}
+
+.thanh_toan_it_r {
+    float: left;
+    line-height: 28px;
+    margin-left: 5px
+}
+
+.thanh_toan_input {
+    float: left;
+    margin-top: 5px;
+    height: 20px;
+    border-radius: 3px;
+    border: solid 1px #cdcdcd!important
+}
+
+.gioi_tinh_sl {
+    float: left;
+    width: 70px;
+    border: solid 1px #cdcdcd;
+    margin-top: 5px
+}
+
+.birthday_sl_b {
+    float: left;
+    margin-left: 15px
+}
+
+.birthday_sl {
+    float: left;
+    width: 91px;
+    border: solid 1px #cdcdcd;
+    margin-top: 5px
+}
+
+.province_sl {
+    float: left;
+    width: 200px;
+    border: solid 1px #cdcdcd;
+    margin-top: 5px
+}
+
+.district_sl {
+    float: left;
+    width: 208px;
+    border: solid 1px #cdcdcd;
+    margin-top: 5px
+}
+
+.thanh_toan_input_area {
+    border: solid 1px #cdcdcd
+}
+
+.phuong_thuc_thanh_toan {
+    width: 100%;
+    float: left
+}
+
+.chon_thanh_toan {
+    float: left;
+    margin-left: 20px;
+    line-height: 30px;
+    font-size: 13px
+}
+
+.pttt_row {
+    float: left;
+    width: 100%;
+    line-height: 30px
+}
+
+.pttt_rd {
+    float: left;
+    margin-left: 50px
+}
+
+.pttt_detail {
+    float: left;
+    margin-left: 20px;
+    font-style: italic
+}
+
+.pttt_detail a {
+    color: #ee652f!important;
+    text-decoration: underline
+}
+
+.pttt_notice {
+    background-color: #fffbcc;
+    border: solid 1px #e6db55;
+    color: #666452;
+    line-height: 30px;
+    float: left;
+    margin-left: 20px;
+    width: 590px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: right;
+    font-weight: bold
+}
+
+.loginfrmbuy {
+    width: 100%;
+    float: left;
+    margin: 10px 0
+}
+
+.ylgbuttondiv {
+    float: left;
+    margin-left: 492px;
+    background: url(images/btn_customer_bg.png) no-repeat left top;
+    width: 125px;
+    height: 28px
+}
+
+.ylgbuttondiv:hover {
+    cursor: pointer;
+    background-position: 0 -28px
+}
+
+.ylgbuttondiv a {
+    line-height: 25px;
+    width: 100%;
+    text-align: center;
+    float: left;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff
+}
+
+.ylgRecipientInfo {
+    width: 100%;
+    float: left
+}
+
+.thanhtoan_new_content_ifo {
+    float: left;
+    width: 100%
+}
+
+.hide {
+    display: none
+}
+
+.register-message {
+    color: red;
+    display: none;
+    font-weight: bold;
+    line-height: 30px;
+    margin-top: 10px;
+    padding: 20px 0 0 0
+}
+
+.cart_notlogin {
+    float: left
+}
+
+.btnOrderNotLogIn {
+    background: url("images/btn_customer_bg.png") no-repeat scroll left top transparent;
+    float: left;
+    height: 28px;
+    margin-left: 360px;
+    width: 125px
+}
+
+.btnOrderNotLogIn:hover {
+    background-position: 0 -28px;
+    cursor: pointer
+}
+
+.btnOrderNotLogIn a {
+    color: #fff;
+    float: left;
+    font-size: 12px;
+    font-weight: 800;
+    margin-top: 4px;
+    text-align: center;
+    width: 100%;
+    line-height: 23px;
+    text-transform: uppercase
+}
+
+.error {
+    color: red;
+    float: left;
+    line-height: 25px;
+    margin-left: 5px
+}
+
+.member_quest {
+    background: none repeat scroll 0 0 rgba(255,255,255,.24);
+    border-radius: 3px 3px 3px 3px;
+    color: #454545;
+    display: none;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 5px;
+    position: fixed;
+    width: 500px;
+    z-index: 9999
+}
+
+.quest_all_b {
+    background-color: #fff;
+    border-radius: 3px 3px 3px 3px;
+    display: block;
+    float: left;
+    width: 100%
+}
+
+.quest_title {
+    background: url("images/new_pop_top_img_bg.png") repeat-x scroll left top #5b9d05;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
+    width: 100%;
+    height: 30px
+}
+
+.quest_content {
+    background-color: #fff;
+    float: left;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    width: 100%
+}
+
+.btnQuestclose {
+    cursor: pointer;
+    float: right;
+    line-height: 27px;
+    margin-right: 3px;
+    margin-top: 0;
+    width: 15px
+}
+
+.quest_notice {
+    font-size: 11pt;
+    padding: 10px
+}
+
+.email_q {
+    color: red
+}
+
+.q_ctr {
+    margin: 10px 0
+}
+
+.rs_pop_btn {
+    cursor: pointer;
+    padding: 3px 10px;
+    border-radius: 11px;
+    background-color: #67ac0d;
+    color: #fff
+}
+
+.rs_pop_btn:hover {
+    background-color: #000
+}
+
+.cmoney_notice {
+    float: left;
+    font-size: 10pt;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 20px
+}
+
+.toolTip {
+    padding-right: 20px;
+    background: url(images/help.gif) no-repeat right;
+    color: #36f;
+    cursor: help;
+    position: relative
+}
+
+.toolTipWrapper {
+    width: 295px;
+    position: absolute;
+    top: 20px;
+    display: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 9pt;
+    z-index: 999
+}
+
+.toolTipTop {
+    width: 295px;
+    height: 30px;
+    background: url(images/tip_top.png) no-repeat
+}
+
+.toolTipMid {
+    padding: 8px 15px;
+    background: #a1d40a url(images/tip_bg.png) repeat-x top
+}
+
+.toolTipBtm {
+    height: 13px;
+    background: url(images/tip_bottom.png) no-repeat
+}
+
+.tooltip_ico {
+    width: 16px;
+    height: 16px
+}

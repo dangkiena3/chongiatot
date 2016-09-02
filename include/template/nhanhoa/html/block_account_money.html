@@ -1,0 +1,40 @@
+<div class="personal_page">
+    <div class="personal-nav">
+        <div class="nav-bar-bg">
+        </div>
+        <div class="personal-bar">
+            <ul>${current_account2()}</ul>
+        </div>
+    </div>
+    <div class="personal-content">
+        <div class="taisan">
+            <div class="taisan-content">
+                <div class="info-item">
+                    <span class="item-left muahang">Tổng số tiền đã mua hàng:</span> <span class="item-right">${formatMoney($pay_deal_total)}&nbsp;đ</span>
+                </div>
+                <div class="info-item">
+                    <span class="item-left tietkiem">Tổng số tiền tiết kiệm:</span> <span class="item-right green">${formatMoney($save_money_total)}&nbsp;đ</span>
+                </div>
+                <div class="info-item">
+                    <span class="item-left chotichluy">Tiền tích lũy đã nhận:</span> <span class="item-right">${formatMoney($cmoney_total)}&nbsp;đ</span>
+                </div>
+                <div class="info-item last">
+                    <span class="item-left tichluy">Tiền tích lũy hiện có:</span> <span class="item-right orange">${formatMoney($login_user['money'])}&nbsp;đ</span>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="huong-dan">
+            <div class="hd-title boldGreen">Hướng dẫn sử dụng Tiền tích lũy và Quyền lợi khách hàng</div>
+            <div class="hd-content">
+                <span style="font-size:16px;">
+                	<span style="font-family: tahoma, geneva, sans-serif; ">
+                    <strong>Tiền tích lũy là gì?</strong><br><br>
+Là số tiền bạn tích lũy được sau mỗi lần mua hàng. Số tiền này sẽ được trừ khi bạn mua hàng lần tiếp theo.<br>
+Ví dụ, bạn mua Đồng hồ được tích lũy 10,000đ. Lần mua sau bạn sẽ được trừ 10,000đ trên hóa đơn.</span></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

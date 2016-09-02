@@ -1,0 +1,51 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="partner">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_market('down')}</ul>
+	</div>
+	<div id="content" class="clear mainwide">
+        <div class="clear box">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+					<h2>Thông tin khách hàng</h2>
+					<ul class="filter">${mcurrent_market_down('downuser')}</ul>
+				</div>
+                <div class="sect">
+                    <form method="post" target="_blank">
+                        <div class="field">
+                            <label>Thành phố</label>
+							<div style="padding-top:8px;"><!--{loop $allcities $one}--><input type="checkbox" name="city_id[]" value="{$one['id']}" checked />&nbsp;{$one['name']}&nbsp;&nbsp;<!--{/loop}--><input type="checkbox" name="city_id[]" value="0" checked>&nbsp;Tỉnh thành khác</div>
+						</div>
+
+                        <div class="field">
+                            <label>Đã mua</label>
+							<div style="padding-top:8px;"><input type="checkbox" name="newbie[]" value="Y" checked />&nbsp;Sắp mua&nbsp;&nbsp;<input type="checkbox" name="newbie[]" value="N" checked>&nbsp;Đã mua</div>
+						</div>
+
+                        <div class="field">
+                            <label>Giới tính</label>
+							<div style="padding-top:8px;"><input type="checkbox" name="gender[]" value="M" checked />&nbsp;Nam&nbsp;&nbsp;<input type="checkbox" name="gender[]" value="F" checked>&nbsp;Nữ</div>
+						</div>
+
+                        <div class="act">
+                            <input type="submit" value="Tải về" name="commit" class="formbutton"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+	</div>
+
+<div id="sidebar">
+</div>
+
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

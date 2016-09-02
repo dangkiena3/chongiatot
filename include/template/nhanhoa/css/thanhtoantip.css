@@ -1,0 +1,32 @@
+﻿ 
+.toolTip {
+        padding-right: 20px;
+        background: url(images/help.gif) no-repeat right;
+        color: #3366FF;
+        cursor: help;
+        position: relative;
+}
+.toolTipWrapper {
+        width: 295px;
+        position: absolute;
+        top: 20px;
+        display: none;
+        color: #FFF;
+        font-weight: bold;
+        font-size: 9pt;
+        z-index:999;
+}
+.toolTipTop {
+        width: 295px;
+        height: 30px;
+        background: url(images/tip_top.png) no-repeat;
+}
+.toolTipMid {
+        padding: 8px 15px;
+        background: #A1D40A url(images/tip_bg.png) repeat-x top;
+}
+.toolTipBtm {
+        height: 13px;
+        background: url(images/tip_bottom.png) no-repeat;
+}
+.tooltip_ico{width:16px;height:16px;}

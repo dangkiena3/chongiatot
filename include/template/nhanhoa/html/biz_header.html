@@ -1,0 +1,28 @@
+<!--{include biz_html_header}-->
+<script type="text/javascript" src="/static/js/xheditor-1.1.6/xheditor-1.1.6-en.min.js"></script> 
+<div id="hdw">
+	<div id="hd">
+		<div id="logo">
+		<a href="/biz/index.php" class="link" target="_blank"><img src="/img/zago.png" height="100px"/></a>
+		<h2>Editor Management System</h2>
+		<!--{if is_partner()}-->
+		<div id="profile_info"> <img src="/biz/css/images/avatar.jpg" id="avatar" alt="avatar">
+              <p>Chào <strong>${getRecord('partner',$_SESSION['partner_id'],'username')}</strong>. <a href="/biz/logout.php">Thoát ?</a></p>
+              <p class="last_login">IP của bạn: {$_SERVER['REMOTE_ADDR']}</p>
+              <p><a href="/biz/settings.php" id="change-pass">Đổi mật khẩu</a></p>
+            </div>
+		<!--{/if}-->	
+		</div>
+	</div>
+</div>
+<!--{if $session_notice=Session::Get('notice',true)}-->
+<div class="sysmsgw" id="sysmsg-success"><div class="sysmsg"><p>{$session_notice}</p><span class="close">close</span></div></div> 
+<!--{/if}-->
+<!--{if $session_notice=Session::Get('error',true)}-->
+<div class="sysmsgw" id="sysmsg-error"><div class="sysmsg"><p>{$session_notice}</p><span class="close">close</span></div></div> 
+<!--{/if}-->
+<!--{if is_partner()}-->
+<div class="menuNhanHoa">
+		<ul class="nav cf">${current_biz()}</ul>
+</div>		
+<!--{/if}-->

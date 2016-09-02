@@ -1,0 +1,102 @@
+<p>Viết lời bình</p>
+<div class="divCommentNoteSuccess"></div>
+                    <div class="divCommentNoteError"></div>
+                    <iframe src="" style="display: none;" name="ifpost" id="ifpost"></iframe>
+					
+					<!--{if $login_user}-->
+                    <form action="/jquery/addcomment.php" method="post" id="formComment">
+                    <div>
+                        <div class="divRight">
+                            <textarea name="txtCommentContent" id="txtCommentContent" class="txtCM" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div>
+                        <div class="divFloatRight">
+                             <div style="text-align: center; width: 100%;" class="center">
+                                <a href="javascript: void(0);" id="btnGopYSanPham" class="sendComment"></a>
+                                <input type="hidden" id="hdfDealID" name="hdfDealID" value="{$team['id']}">
+                            </div>
+                        </div>
+                        <div class="divFloatRight divLoadingGopY">
+                            <img alt="hotdeal" src="{$template_path}/grey.gif" original="/img/loading.gif">
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    </form>
+					<!--{else}-->	
+					<p class="no-items">Bạn phải <a href="/dang-nhap.html">đăng nhập</a> để gửi bình luận.</p>
+					<!--{/if}-->
+<!--{loop $comments $comment}-->
+<!--${
+	$user_ids = Utility::GetColumn($ask, 'user_id');
+	$user_ids[] = $comment['user_id'];
+	$users = Table::Fetch('user', $user_ids);
+	$condReply = array( 
+		'ask_id' => $comment['id'],
+		'display' => 'Y',
+		'type' => 'transfer',
+	);
+	$replies = DB::LimitQuery('ask', array(
+	'condition' => $condReply,
+	'order' => 'ORDER BY ID ASC',
+	));
+	$countRe = Table::Count('ask', $condReply);	
+	$user_ids = Utility::GetColumn($replies, 'user_id');
+	$user_ids[] = $replies['user_id'];
+	$users = Table::Fetch('user', $user_ids);
+}-->					
+<div class="comment-content">
+    <div class="profile-info">
+	<a class="avatar-user" href="javascript:void(0);">
+	<img height="47" width="47" src="${$users[$comment['user_id']]['avatar'] ? user_image($users[$comment['user_id']]['avatar']) : $INI['system']['wwwprefix'].'/static/css/i/noavatar.jpg' }" alt="{$users[$comment['user_id']]['realname']} tại Zago.vn">
+	</a>
+	<p class="user-info vip-close">
+	<a href="javascript:void(0);">{$users[$comment['user_id']]['realname']}</a><br>
+	<span>${Utility::HumanTime($comment['create_time'])}</span> 
+	</p> 
+	</div> 
+	<div class="inner-content-cm"> 
+	<p>${nl2br(htmlspecialchars($comment['content']))}</p>
+    </div> 
+	<div class="title-idea">
+	<a class="aReply" onclick="ShowReplyTopic({$comment['id']})" href="javascript:void(0)">Trả lời ({$countRe})</a> 
+	</div>
+</div>	
+<div id="dSubCommentCont_{$comment['id']}" style="display: none;" class="sub-comment-content">
+<!--{loop $replies $reply}-->
+	<div class="subCM-content">
+		<div class="profile-info"> 
+		<a class="avatar-user" href="javascript:void(0);">
+		<img height="47" width="47" src="${$users[$reply['user_id']]['avatar'] ? user_image($users[$reply['user_id']]['avatar']) : $INI['system']['wwwprefix'].'/static/css/i/noavatar.jpg' }" alt="{$users[$reply['user_id']]['realname']} tại Zago.vn">
+		<!--{if $users[$reply['user_id']]['manager']=='Y'}-->
+		<em class="title-avatar"></em>
+		<!--{/if}-->
+        </a>
+		<p class="user-info no-vip">    
+		<a  href="javascript:void(0);">{$users[$reply['user_id']]['realname']}</a><br> 
+		<span>${Utility::HumanTime($reply['create_time'])}</span>
+		</p>    </div> 
+		<div class="inner-content-cm"> 
+		<p>${nl2br(htmlspecialchars($reply['content']))}</p>
+		</div>
+	</div>
+<!--{/loop}-->	
+	<div class="clear"></div>
+	<!--{if $login_user}-->
+	<div class="divReplyNoteSuccess"></div>
+    <div class="divReplyNoteError"></div>
+    <iframe src="" style="display: none;" name="ifpostReply" id="ifpostReply"></iframe>
+	<form action="/jquery/addreply.php?id={$comment['id']}" method="post" id="formCommentReply{$comment['id']}">
+	<div class="write-sub-comment">
+	 <input type="hidden" id="DealID" name="DealID_{$comment['id']}" value="{$comment['id']}">
+	 <input type="hidden" id="hdfDealID" name="hdfDealID" value="{$team['id']}">
+    <textarea class="textareaCM textareaSubCM" name="txtSubComment_{$comment['id']}"  id="txtSubComment_{$comment['id']}" placeholder="Viết bình luận"></textarea>
+    <a class="sendComment btnsendComment" id="{$comment['id']}"></a>
+	</div>
+	</form>
+	<!--{else}-->	
+					<p class="no-items">Bạn phải <a href="/dang-nhap.html">đăng nhập</a> để gửi bình luận.</p>
+	<!--{/if}-->
+	</div>
+<!--{/loop}-->				

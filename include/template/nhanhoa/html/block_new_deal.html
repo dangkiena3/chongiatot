@@ -1,0 +1,62 @@
+<!--${
+    $daytime = time();
+    $cond_new = array(
+        'city_id' => array(0, abs(intval($city['id']))),
+        "begin_time <= '$daytime'",
+        "end_time > '$daytime'",
+    );
+
+    $newteams = DB::LimitQuery('team', array(
+        'condition' => $cond_new,
+        'order' => 'ORDER BY sort_order DESC, begin_time DESC,  id DESC',
+        'size' => $INI['system']['new_deal_item'],
+    ));
+}-->
+<!--New deal-->
+<div class="showproduct_cate new_deal">
+    <div class="product_top">
+        <div class="product_top_title"><a href="/Gia-Tot-Gan-Day" title="Sản phẩm mới">Sản phẩm mới</a></div>
+        <div class="product_top_control"><a href="/Gia-Tot-Gan-Day">Xem tất cả</a></div>
+    </div>
+    <div class="product_cate_content">
+        <div class="ls_cate_product" style="width: auto">
+            <!--{loop $newteams $index $one}-->
+            <div class="cate_product_item">
+                <div class="cate_product_item_img">
+                	<!--{if $team_type!='normal'}-->
+                    <span class="ribbon_{$one['team_type']}"></span>
+                    <!--{/if}-->
+                    <a href="${rewrite_team_id($one['id'])}" target="_blank">
+                        <img alt="{$one['product']}, {$INI['system']['keywordseo']}" src="${team_image($one['image'])}" />
+                    </a>
+                    <div class="cate_product_delivery">
+                    	<span class="cate_product_damua">&nbsp;Đã mua <span>{$one['now_number']}</span></span>
+                    	<span class="cate_product_giaohang">
+                        	<span class="giao_{$one['delivery_type']}"></span>
+                            {$option_giaohang[$one['delivery_type']]}
+                        </span>
+                    </div>
+                </div>
+                <div class="cate_product_item_title">
+                    <a href="${rewrite_team_id($one['id'])}" target="_blank">{$one['product']}</a>
+                </div>
+                <div class="cate_product_item_info">
+                    <span class="deal_common_info sale_prc">${formatMoney($one['team_price'])}đ</span> 
+                    <span class="deal_common_info discount_percent">
+                        <span>-${formatMoney($one['percent'])}%</span>
+                    </span>
+                    <span class="deal_common_info deal_cmny" style="display: none;">
+                        <span>{$one['bonus']}</span>
+                    </span>
+                    <span class="deal_common_info deal_number_buy">
+                        <span>${formatMoney($one['view']+$one['pre_view'])}</span>người xem
+                    </span>
+                    <span class="deal_timer" id="tg-${++$count_timer}" diff="{$one['end_time']-$daytime}">
+                    	<span class="divtimer" id="timer-{$count_timer}"></span>
+                    </span>
+                </div>
+            </div>
+            <!--{/loop}-->
+        </div>
+    </div>
+</div><!--End new deal-->

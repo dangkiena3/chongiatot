@@ -1,0 +1,237 @@
+<!--{include manage_header}-->
+<script language="javascript">
+ $(document).ready(function() {
+  $('#province').change(function(){
+   	giatri = this.value;
+   	$('#sdistrict').load('/ajax/location.php?location=district&id=' + giatri);
+  });
+ });
+</script>
+
+
+<div id="bdw" class="bdw">
+
+<div id="bd" class="cf">
+
+<div id="partner">
+
+	<div class="dashboard" id="dashboard">
+
+		<ul>${mcurrent_location($local)}</ul>
+
+	</div>
+
+	<div id="content" class="clear mainwide">
+
+        <div class="clear box">
+
+            <div class="box-top"></div>
+
+            <div class="box-content">
+
+                <div class="head"><h2>Nhập thông tin {$cates[$local]}</h2></div>
+
+                <div class="sect">
+
+                    <form method="post" action="{$_SERVER['PHP_SELF']}" enctype="multipart/form-data" class="validator">
+
+                    <input type="hidden" name="id" value="{$_GET['id']}">
+	       
+
+                        <div class="field"><label>Tên</label>
+						
+                            <input type="text" size="30" name="name_info" value="{$getlocation['name']}" require="true" datatype="require" maxLength="100" class="f-input" style="width:200px;" />
+
+                        </div>
+
+						
+                        <input type="hidden" size="30" name="local_info" value="{$local}" require="true" datatype="require" maxLength="100" class="f-input" style="width:200px;" />
+
+
+
+						<!--{if $local=='district'}-->
+                        <div class="field">
+
+                        	<label>Tỉnh thành</label>
+							
+							<!--{if $_GET['action']=='edit'}-->
+
+                            <select name="pid_info" class="f-input" style="width:210px;">
+								
+								${Utility::Option($provinces, $getlocation['pid'])}
+
+							</select>
+
+							<!--{else}-->
+
+                            <select name="pid_info" class="f-input" style="width:210px;">
+
+								<option value="">--chọn tỉnh thành--</option>
+								
+								${Utility::Option($provinces, $getlocation['pid'])}
+
+							</select>
+
+							<!--{/if}-->
+
+                        </div>
+						<!--{/if}--> 
+
+						<!--{if $local=='ward'}-->  
+
+                       <div class="field">
+
+                        	<label>Tỉnh thành</label>
+							
+							<!--{if $_GET['action']!='edit'}-->
+
+                            <select name="province" id="province" class="f-input" style="width:210px;">
+
+								<option value="">--chọn tỉnh thành--</option>
+
+								${Utility::Option($provinces, get_pid_local($getlocation['pid']))}
+
+							</select>
+
+							<!--{else}-->
+							
+                            <select name="province" id="province" class="f-input" style="width:210px;">
+
+								${Utility::Option($provinces, get_pid_local($getlocation['pid']))}
+
+							</select>
+							
+							<!--{/if}-->
+
+                        </div>
+
+                       <div class="field">
+
+                        	<label>Quận huyện</label>
+							
+							<span id="sdistrict">
+	
+								<!--{if $_GET['action']!='edit'}-->
+
+                            	<select name="pid_info" id="district" class="f-input" style="width:210px;">
+
+									<option value="">--chọn quận huyện--</option>
+
+								</select>
+
+								<!--{else}-->
+
+								<select name="pid_info" id="district" class="f-input" style="width:210px;">
+
+									${Utility::Option($districts, $getlocation['pid'])}
+
+								</select>
+
+								<!--{/if}-->
+
+							</span>
+
+                        </div>
+
+						<!--{/if}-->               
+
+                        <div class="field">
+
+                            <label>Hiển thị</label>
+
+							<!--{if $getlocation['display']=='N'}-->
+							
+							<input type="radio" name="display_info" value="Y" /> Có 
+
+							<input type="radio" name="display_info" value="N" checked="checked" /> không
+
+							<!--{else}-->
+
+							<input type="radio" name="display_info" value="Y" checked="checked"/> Có 
+
+							<input type="radio" name="display_info" value="N"/> Không
+							
+							<!--{/if}-->
+
+						</div>
+					   
+					    <div class="field">
+
+                            <label>Sắp xếp</label>
+
+                            <input type="text" size="30" name="sort_info" value="{$getlocation['sort_order']}" require="true" maxLength="3" class="f-input" style="width:200px;" />
+
+                        </div>  
+                        
+                        <div class="act">
+
+                            <input type="submit" value="Thêm" name="createnew" class="formbutton"/>
+
+                            <input type="submit" value="Sửa" name="edit" class="formbutton" style="margin-left:15px;"/>
+
+                            <input type="reset" value="Reset" id="clear" name="clear" class="formbutton" style="margin-left:15px;"/>
+
+                        </div>
+
+                    </form>
+
+                    <table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+
+					<tr class="forum_title_tr">
+                    	<th width="50">ID</th><th width="200">Tên</th><th width="250">Tên khu vực cha</th><th width="250">Phí giao hàng</th>
+                        <th width="50" nowrap>Hiển thị</th>
+                        <th width="80">Sắp xếp</th><th width="150">Thao tác</th>
+                  	</tr>
+
+					<!--{loop $locations $location $one}-->
+
+					<tr ${$index%2?'':'class="alt"'} id="team-list-id-{$one['id']}">
+
+						<td>{$one['id']}</td>
+
+						<td>{$one['name']}</td>
+
+						<td>						
+						${get_name_local($one['pid'])}
+						<!--{if $local=='ward'}-->
+						 - ${get_name_local(get_pid_local($one['pid']))}
+						<!--{/if}-->
+						</td>
+                        
+						<td>${formatMoney($one['ship'],0)}</td>
+                        
+						<td>{$one['display']}</td>
+
+						<td>{$one['sort_order']}</td>
+
+					<td class="op" nowrap><a href="/manage/location/index.php?local={$local}&action=edit&id={$one['id']}">Sửa</a> | <a href="/ajax/manage.php?action=locationremove&id={$one['id']}" class="ajaxlink" ask="Bạn có chắc xoá khu vực này không?">Xoá</a></td>
+
+					</tr>
+
+					<!--{/loop}-->
+
+					<tr><td colspan="8">{$pagestring}</tr>						
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="box-bottom"></div>
+
+        </div>
+
+	</div>
+
+<div id="sidebar">
+
+</div>
+
+</div>
+
+</div> <!-- bd end -->
+
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

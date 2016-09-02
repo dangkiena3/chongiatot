@@ -1,0 +1,12 @@
+Xin chào {$user['realname']},<br />
+<br />
+Bạn đã đặt hàng thành công tại {$INI['system']['sitename']}, chúng tôi đã xác nhận đơn hàng của bạn<br>
+<br />
+<hr/>
+<strong>Số đơn hàng:</strong> {$order['code']}<br /><br />
+<strong>Ngày đặt hàng:</strong> ${date('H:i, d-m-Y',$order['create_time'])}<br /><br />
+<strong>Tên sản phẩm:</strong> {$team['product']}<br /><br />
+<strong>Giá sản phẩm:</strong> {$team['team_price']}<br /><br />
+<strong>Số lượng:</strong> {$order['quantity']}<br /><br />
+<br /><br />
+<i>Cám ơn bạn đã sử dụng dịch vụ của chúng tôi!</i>

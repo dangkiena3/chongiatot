@@ -1,0 +1,70 @@
+<div class="vcontent">
+	<h1 class="vtop_title">
+    	<span>Chợ Voucher</span>
+        <span class="vfilter">
+        	<!--{if $_SERVER['REQUEST_URI'] == '/Cho-Voucher'}-->
+        	<a class="vselected" href="/Cho-Voucher" title="Tất cả">Tất cả</a>
+            <!--{else}-->
+            <a href="/Cho-Voucher" title="Tất cả">Tất cả</a>
+            <!--{/if}-->
+        	<!--{if $_SERVER['REQUEST_URI'] == '/Cho-Voucher/Mua'}-->
+        	<a class="vselected" href="/Cho-Voucher/Mua" title="Mua">Mua</a>
+            <!--{else}-->
+        	<a href="/Cho-Voucher/Mua" title="Mua">Mua</a>
+            <!--{/if}-->
+        	<!--{if $_SERVER['REQUEST_URI'] == '/Cho-Voucher/Ban'}-->
+            <a class="vselected" href="/Cho-Voucher/Ban" title="Bán">Bán</a>
+            <!--{else}-->
+            <a href="/Cho-Voucher/Ban" title="Bán">Bán</a>
+            <!--{/if}-->
+            <a href="/Cho-Voucher/Dang-Tin" title="Đăng tin" class="dangtin">Đăng tin</a>
+        </span>
+  	</h1>
+    <div class="clear"></div>
+    <div class="list-content">
+    	<!--{if Session::Get('thongbao')}-->
+    	<div id="thongbao">${Session::Get('thongbao',true)}</div>
+        <!--{/if}-->
+    	<ul>
+        	<!--{loop $vms $index $one}-->
+            <!--${
+            	$user = Table::Fetch('user', $one['user_id']);
+                $cmt_cond = array('vmarket_id'=>$one['id'],'type'=>'comment');
+                $vcmt_total = Table::Count('vmarket_cmt',$cmt_cond);
+           	}-->
+        	<li>
+            	<h2 class="{$one['vtype']}">
+                	<a href="${rewrite_vmarket_id($one['id'])}" title="">{$one['title']}</a>
+                </h2>
+                <p class="vdesc">{$one['desc']}</p>
+                <p class="vinfo">
+                	<span class="user"><img src="${team_image($user['avatar'])}" />{$user['realname']}</span>
+                    <span class="user">${Utility::HumanTime($one['create_time'])}</span>
+                    <span class="user">Đã xem: {$one['view']}</span>
+                    <span class="user"><a href="${rewrite_vmarket_id($one['id'])}">Bàn luận: {$vcmt_total}</a></span>
+                    
+                </p>
+            </li>
+            <!--{/loop}-->
+        </ul>
+        {$pagestring}
+    </div>
+    <div class="vads_left">
+    	<!--${
+    	$ads_vrights = DB::LimitQuery('adsense', array(
+        	'condition' => array('display'=>'Y', 'pos_ads'=>'vright'),
+            'order' => 'ORDER BY order_sort ASC, id DESC',
+			'size' => $INI['system']['vright_ads_item'],
+        ));
+        }-->
+    	<ul>
+        	<!--{loop $ads_vrights $index $one}-->
+        	<li>
+            	<a href="{$one['url']}" title="{$one['name']}" target="_blank">
+                	<img src="${team_image($one['image'])}" alt="{$one['name']} ads by {$tenngan}" width="200" />
+             	</a>
+     		</li>
+            <!--{/loop}-->
+        </ul>
+    </div>
+</div>
