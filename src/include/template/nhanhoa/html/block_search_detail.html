@@ -1,0 +1,68 @@
+<div style="float: left; width: 790px;">
+    <div class="search_top_detail">
+    <form action="/Tim-kiem" name="formSearchDealTop" id="formSearchDealTop">
+        <div class="s_title">Từ khóa</div>
+        <div class="search_it">
+            <input type="text" style="width:110px;" class="search_top_input" value="--Nhập từ khóa--" onfocus="javascript:if(this.value == '--Nhập từ khóa--') this.value='';" onblur="javascript:if(this.value == '')this.value='--Nhập từ khóa--';" name="sk" id="keyword">
+        </div>
+        <div class="search_it">
+            <select class="search_top_slopt" name="spf" id="pricefrom">
+                <option value="0">Giá từ</option>
+                <option value="20000">20.000</option>
+                <option value="50000">50.000</option>
+                <option value="100000">100.000</option>
+                <option value="150000">150.000</option>
+                <option value="200000">200.000</option>
+                <option value="250000">250.000</option>
+                <option value="300000">300.000</option>
+                <option value="500000">500.000</option>
+                <option value="1000000">1.000.000</option>
+                <option value="3000000">3.000.000</option>
+                <option value="5000000">5.000.000</option>
+            </select>
+        
+        </div>
+        <div class="search_it">
+            <select class="search_top_slopt" name="spt" id="priceto">
+                <option value="0">Giá đến</option>
+                <option value="20000">20.000</option>
+                <option value="50000">50.000</option>
+                <option value="100000">100.000</option>
+                <option value="150000">150.000</option>
+                <option value="200000">200.000</option>
+                <option value="250000">250.000</option>
+                <option value="300000">300.000</option>
+                <option value="500000">500.000</option>
+                <option value="1000000">1.000.000</option>
+                <option value="3000000">3.000.000</option>
+                <option value="5000000">5.000.000</option>
+        </select>
+        </div>
+        <div class="search_it">
+            <select class="search_top_slopt" name="sg" id="gender">
+                ${Utility::Option($option_gender,'','Đối tượng')}
+            </select>
+        </div>
+        <div class="search_it">
+            <select class="search_top_slopt" name="sc" id="categrid">
+                <option value="">Danh mục</option>
+                ${option_menu()}
+            </select>
+        </div>
+        <div class="search_it">
+            <div class="detait_search-button">
+                <a href="#">Tìm kiếm</a>
+            </div>
+        </div>
+        </form>
+    </div>
+
+	<script type="text/javascript">
+        $(function () {
+            $(".detait_search-button a").unbind("click").click(function () {
+                //var url = "/Tim-kiem?sk=" + $("#keyword").val() + "&amp;spf="+$("#").val()+"&amp;spt=0&amp;sg=0&amp;sc=";
+                $("#formSearchDealTop").submit();
+            });
+        });
+    </script>
+</div>

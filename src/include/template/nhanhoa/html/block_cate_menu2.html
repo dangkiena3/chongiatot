@@ -1,0 +1,75 @@
+<!--${
+	$rcate = DB::LimitQuery('cate', array(
+    	'condition' => array('cate_type'=>'deal', 'type'=>'root', 'display'=>'Y'),
+        'order' => 'ORDER BY sort_order ASC',
+    ));
+    $count_cate = count($cate);
+}-->
+<!--Danh muc san pham-->
+<div class="category divProductCategoryBox">
+    <div class="cate-title">DEAL MENU</div>
+    <div class="cate-content">
+    	<!--{loop $rcate $index $one}-->
+		<div class="cate-item">
+        	<div class="parrent">
+            	<img src="/static/{$one['image_cate']}" alt="Thời trang" width="16" height="16" />
+                <a class="athd" href="${rewrite_cate_shop($one['id'])}" title="{$one['name']}">{$one['name']}<span class="deal_count">(${count_team_cate($one['id'])})</span></a>
+                <!--${
+                    $ccate = DB::LimitQuery('cate', array(
+                        'condition' => array(
+                            'cate_type'=>'deal', 
+                            'type'=>'child', 
+                            'display'=>'Y', 
+                            'pid' => $one['id']
+                        ),
+                        'order' => 'ORDER BY sort_order ASC',
+                    ));
+                    $count_ccate = count($ccate);
+                }-->
+        	</div>
+                <!--{if !empty($ccate)}-->
+                <!--{if $count_ccate >= 3}-->
+                	<!--{if}-->
+                    <dd class="sub-cate-list" style="top:{$index*-26}px; width:380px;">
+                <!--{else}-->
+                <dd class="sub-cate-list" style="top:{$index*-26}px;">
+                <!--{/if}-->
+                	<!--{loop $ccate $index1 $one1}-->
+                    <!--{if $index1%2 == 0 }-->
+                	<div class="box-column">
+                    <!--{/if}-->
+                    	<dl>
+                        	<dt><a href="${rewrite_cate_shop($one1['id'])}" title="{$one1['name']}">{$one1['name']}</a></dt>
+                            <!--${
+                                $sccate = DB::LimitQuery('cate', array(
+                                    'condition' => array(
+                                        'cate_type'=>'deal', 
+                                        'type'=>'subchild', 
+                                        'display'=>'Y', 
+                                        'pid' => $one1['id']
+                                    ),
+                                    'order' => 'ORDER BY sort_order ASC',
+                                ));
+                            }-->
+                        	<dd>
+                            	<!--{loop $sccate $index2 $one2}-->
+                            	<a href="${rewrite_cate_shop($one2['id'])}" title="{$one2['name']}">{$one2['name']}</a>
+                                <!--{/loop}-->
+                      		</dd>
+                        </dl>
+                    <!--{if $index1%2 != 0 }-->
+                	</div>
+                    <!--{/if}-->
+                    <!--{/loop}-->
+                    <!--{if end($ccate)=='FALSE'}-->
+                    </div>
+                    <!--{/if}-->
+                </dd>
+                <!--{/if}-->
+     	</div>
+        <div class="clear"></div>
+        <!--{/loop}-->
+    </div>
+</div>
+<!--End Danh muc-->
+<div class="clear"></div>

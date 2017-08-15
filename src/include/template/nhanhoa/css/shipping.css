@@ -1,0 +1,36 @@
+﻿/*pop style*/
+.shipping_box{background: none repeat scroll 0 0 rgba(255, 255, 255, 0.24);border-radius: 3px 3px 3px 3px;color: #454545;display: none;font-size: 12px;font-weight: normal;padding: 5px;position: fixed;width: 500px;z-index: 9999;}
+.w_shiping{background-color: #FFFFFF;border-radius: 3px 3px 3px 3px;display: block;float: left;width: 100%;}
+.shiping_title{background: url("../../DefaultTheme/images/new_pop_top_img_bg.png") repeat-x scroll left top #5B9D05;border-top-left-radius: 3px;border-top-right-radius: 3px;color: #FFFFFF;float: left;font-size: 14px;font-weight: bold;line-height: 48px;width: 100%;}
+
+/*end pop style*/
+
+
+
+
+
+
+
+
+
+.wrap_ship {float: left;margin-left: 10px;margin-top: 10px;width: 690px;}
+.ship_title {float: left;height: 25px;width: 100%;}
+.ship_title span {float: left;}
+.c_title_text {color: #6FCC00;float: left;font-size: 12.85pt;font-weight: bold;margin-left: 10px;margin-top: 5px;text-transform: uppercase;}
+.ship_content_box{float: left;width:100%;margin-top:20px;margin-left:10px;}
+.ship_top{float: left;height: 3px;width: 100%;}
+.ship_content{background: url("/Content/DefaultTheme/images/order_box_bg.png") repeat-y scroll left top transparent;float: left;width: 666px;}
+.ship_bottom{float: left;height: 3px;width: 100%;}
+.ship_note{margin:5px 10px;padding:5px;border:solid 1px #E6DB55;background-color:#FFFBCC;border-radius:3px;font-size:13px;}
+.ship_byweight{float:left;margin-top:20px;margin-left:10px;width:600px;}
+.byweight_title{float:left;width:100%;line-height:35px;}
+.byweight_t_ico{float:left;margin-right:5px;}
+.byweight_t_title{float:left;line-height:20px;color:#6FCC00;font-size:13px;text-transform:uppercase;font-weight:bold;}
+.byweight_content{float:left;margin-top:20px;width:100%;}
+.byweight_i{float:left;width:100%;line-height:22px;margin-bottom:10px;}
+.shipping_title{float:left;text-align:right;width:150px;margin-right:10px;}
+.shipping_small_input{border:solid 1px #cdcdcd;height:20px;border-radius:3px;padding:0px 5px;}
+.shipweight_unit{}
+#calc_byweight{cursor:pointer;}
+.byweight_result{float:left; line-height:22px; margin:5px 10px;padding:5px;border:solid 1px #E6DB55;background-color:#FFFBCC;border-radius:3px;font-size:13px;width:620px;}
+.fee_content{float:left;margin-top:3px;margin-left:5px;}

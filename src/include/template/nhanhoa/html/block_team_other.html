@@ -1,0 +1,41 @@
+<!--${
+	$oc = array( 
+			'team_type' => 'normal',
+			'active' => '0',
+			"id <> '$others_team_id'",
+			"group_ppid = '$team[group_ppid]'",
+			);
+	$others = DB::LimitQuery('team', array(
+				'condition' => $oc,
+				'order' => 'ORDER BY RAND()',
+				'size' => 10,
+				));
+	$count = Table::Count('team', $oc);	
+}-->
+<!--{if $count}-->
+<div class="mod-sideDeal">
+	<span class="titleSide">Có thể bạn quan tâm</span>
+	<div class="lien-quan"></div>
+	<div class="innerDeal">
+<!--{loop $others $one}-->
+	<div class="deal-side" style="position:relative;"> 
+	<a href="${rewrite_team_id($one['id'])}" title="{$one['product']}">
+	<img alt="{$one['product']}" src="${team_image($one['image'])}" width="90" height="90"/>    </a>
+	<div class="info-sideDeal"> 
+	<span class="title"><a href="${rewrite_team_id($one['id'])}" title="{$one['product']}">{$one['product']}</a></span>
+	<p> 
+		<del>${formatMoney($one['market_price'])}<sup>đ</sup></del>&nbsp;&nbsp; - &nbsp;<font style="color:#dc143c">${formatMoney($one['team_price'])}<sup>đ</sup></font>       
+	</p> 
+	</div>
+	</div>
+<!--{/loop}-->	
+				   <p class="loadMore">  
+				   <i></i>
+				   <a href="/${friendly_link(getRecord('cate',$team['group_ppid'],'name'))}.html"> 
+				   <span>Xem thêm</span>   
+				   <span class="spanMore"></span> 
+				   </a>   
+				   </p>
+				   </div>
+</div>
+<!--{/if}-->

@@ -1,0 +1,88 @@
+<script type="text/javascript">
+$(document).ready(function() {    
+	var remember_popup = $.cookie('popup_cookie');
+	if(!remember_popup){
+        var img_w = 600;
+        var img_h = 360;
+		var id = '#dialog2';
+		var maskHeight = $(document).height();
+		var maskWidth = $(document).width();
+		$('#mask2').css({'width':maskWidth,'height':maskHeight});
+		$('#mask2').fadeIn(1000);    
+		$('#mask2').fadeTo("slow",0.9);    
+		var winH = $(window).height();
+		var winW = $(window).width();
+		$(id).css('top',  winH/2 - $(id).height()/2);
+		$(id).css('left', winW/2 - $(id).width()/2);
+		$(id).fadeIn(2000); 
+	}
+	function centerIt() {
+		$(id).css('top',  winH/2-$(id).height()/2+$(document).scrollTop());
+		$(id).css('left', winW/2-$(id).width()/2);
+	}
+	$(window).resize(function() {
+		//centerIt();
+	});
+	$('.window2 .close').click(function () {
+		$('#mask2').fadeOut(1000);
+		$('.window2').fadeOut(1000);
+	});        
+    $('#mask2').click(function () {
+        $(this).fadeOut(1000);
+        $('.window2').fadeOut(1000);
+    });        
+});
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {    
+		var cookie_check = 1;
+		$.cookie('popup_cookie', cookie_check);
+    });    
+</script>
+
+<style type="text/css">
+	#mask2 {
+	  position:absolute;
+	  left:0;
+	  top:0;
+	  z-index:9000;
+	  background-color:#000;
+	  display:none;
+	}
+	  
+	#boxes2 .window2 {
+	  position:absolute;
+	  left:0;
+	  top:0;
+	  width:600px;
+	  display:none;
+	  z-index:9999;
+	  padding:10px;
+	  margin-top:0px;
+	}
+	
+	#boxes2 #dialog2 {
+	  background:none;
+	}
+	#boxes2 .close{
+		top:0; right:0;
+		position:absolute;
+		margin-top:5px;cursor:pointer;
+	}
+</style>
+<!--${
+    $popcenter = DB::LimitQuery('adsense', array(
+        'condition' => array('display'=>'Y', 'pos_ads'=>'pop_center'),
+        'order' => 'ORDER BY order_sort ASC, id DESC',
+        'size' => 1,
+    ));
+}-->
+<div id="boxes2">
+    <div id="dialog2" class="window2" style="width:{$INI['option']['pop_center_width']}px; height:{$INI['option']['pop_center_height']}px">
+        <span>
+        <a href="{$popcenter['0']['url']}"><img src="${team_image($popcenter['0']['image'])}" width="{$INI['option']['pop_center_width']}" id="ads_img" /></a>
+        </span>
+    <img src="{$template_path}/new_close_btn.png" border="0" class="close"/>
+    </div>
+    <div id="mask2"></div>
+</div> 

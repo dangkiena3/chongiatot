@@ -1,0 +1,58 @@
+<div style="width:100%;margin-left:10px;" class="cart_notlogin">
+    <div style="cursor:pointer;" class="cart_title">
+        <span class="c_title-ico"><img src="/include/template/{$INI['skin']['template']}/css/images/title_ico.png" alt=""></span>
+        <span class="c_title_text">mua hàng không cần đăng ký</span>
+    </div>
+    <div class="info_box">
+        <div class="info_box_top"><img src="/include/template/{$INI['skin']['template']}/css/images/order_box_top.png" alt=""></div>
+        <form method="post" action="#" name="fromOrderNotLogIn" id="fromOrderNotLogIn">
+        <div style="padding-bottom:10px;" class="info_box_content">
+            <div class="regist_item">
+                <span class="regist_title">Họ và tên:<span class="cart_rg_requie">*</span></span>
+                <span class="regist_input">
+                    <select style="height:27px;padding-top:0px;" name="slNotLogInGender" id="slNotLogInGender">
+                        <option value="M">Anh</option>
+                        <option value="F">Chị</option>
+                    </select>
+                </span>
+                <span class="regist_input"><input type="text" autofocus="true" style="width:300px;" name="txtNotLoginFullName" id="txtNotLoginFullName"></span>
+            </div>
+                <div class="regist_item">
+                    <span class="regist_title">Email:<span class="cart_rg_requie">*</span></span><span class="regist_input"><input type="text" style="width:358px;" name="txtNotLogInEmail" id="txtNotLogInEmail"></span></div>
+             <div class="regist_item">
+                    <span class="regist_title">Điện thoại:<span class="cart_rg_requie">*</span></span><span class="regist_input"><input type="text" maxlength="15" onkeypress="blockNotNumber(event)" name="txtNotLogInPhone" id="txtNotLogInPhone"></span></div>       
+            <div class="login_control">
+                <span style="" class="btnOrderNotLogIn"><a href="Javascript:">Thanh toán</a></span>
+            </div>
+
+        </div>
+        </form>
+
+        <div class="info_box_bottom">
+            <img src="/include/template/{$INI['skin']['template']}/css/images/order_box_bottom.png" alt=""></div>
+    </div>
+</div>
+
+<div class="member_quest">
+    <div class="quest_all_b">
+        <div class="quest_title">
+            <span class="top_pop_left">
+                <img style="position:relative;top:7px;float:left;margin-left:5px;" src="/include/template/{$INI['skin']['template']}/css/images/top_bul.png" alt="">
+            </span>
+            <span style="float:left;margin-left:10px;text-transform:uppercase;">Thông báo: email đã tồn tại</span>
+            <span class="btnQuestclose">
+                <img title="Xdeal - Tắt của sổ này" src="/include/template/{$INI['skin']['template']}/css/images/new_close_btn.png" alt="">
+            </span>
+        </div>
+        <div class="quest_content">
+            <div class="quest_notice">
+                Xin lỗi: địa chỉ email <b class="email_q"></b> đã tồn tại trong hệ thống. Bạn có muốn đăng nhập để mua hàng không ?
+            </div>
+            <div class="q_ctr">
+                <span style="margin-left:80px;"><input type="button" class="rs_pop_btn" value="Vâng, tôi muốn đăng nhập" id="btnRdrLogin"></span>
+                <span style="margin-left:10px;"><input type="button" class="rs_pop_btn" value="Không, tiếp tục mua hàng" id="btnNTMCart"></span>
+            </div>
+        </div>
+
+    </div>
+</div>

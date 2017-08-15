@@ -1,0 +1,75 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_order('ref')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                <h2>Đơn hàng hôm nay</h2>
+                    <ul class="filter">
+                        <li>
+                        <form method="get">
+                            Mã đơn hàng<input type="text" name="order_code" class="h-input number" value="${htmlspecialchars($order_code)}" />
+                            Email<input type="text" name="email" class="h-input" value="${htmlspecialchars($email)}" />
+                            SĐT<input type="text" name="mobile" class="h-input number" value="${htmlspecialchars($mobile)}" />
+                            <input type="submit" value="Tìm" class="formbutton"  style="padding:1px 6px;"/>
+                        </form>
+                        </li>
+                    </ul>
+				</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr class="forum_title_tr">
+                        <th width="40">ID</th>
+                        <th>Mã đ.hàng</th>
+                        <th width="200">Khách hàng</th>
+                        <th width="100" nowrap>Số lượng</th>
+                        <th width="100" nowrap>Thành tiền</th>
+                        <!--<th width="50" nowrap>Chưa trả</th>-->
+                 
+                        <th width="150" nowrap>Tình trạng & Thao tác</th>
+                  	</tr>
+					<!--{loop $orders $index $one}-->
+					<tr ${$index%2?'':'class="alt"'} id="order-list-id-{$one['id']}">
+						<td>{$one['id']}</td>
+						<td><a href="/ajax/manage.php?action=orderdetail&id={$one['id']}" class="ajaxlink">{$one['order_code']}</a></td>
+						<td><a href="/ajax/manage.php?action=userview&id={$one['user_id']}" class="ajaxlink">{$users[$one['user_id']]['realname']}<br/>{$users[$one['user_id']]['mobile']}</a></td>
+						<td>{$one['quantity']}</td>
+						<td>${formatMoney($one['total_price'])}{$currency}</td>
+						<!--<td>${formatMoney($one['credit'])}{$currency}</td>-->
+						<td class="op" nowrap style="text-align:center">
+                        <!--{if $one['order_state']=='pending'}-->
+                        <a href="/ajax/xuly.php?action=xacnhan&id={$one['id']}" class="ajaxlink" ask="Bạn có chắc đã xác nhận đơn hàng này không?">Xác nhận</a> <a href="/ajax/xuly.php?action=huy&id={$one['id']}" class="ajaxlink" ask="Bạn có chắc hủy đơn hàng này không?">Hủy</a>
+                        <!--{elseif $one['order_state']=='confirmed'}-->
+                            <!--{if $one['state']=='unpay'}-->
+                            <a href="/ajax/xuly.php?action=thanhtoan&id={$one['id']}" class="ajaxlink" ask="Bạn có chắc đơn hàng này đã thanh toán hay không?">Thanh toán</a>
+                            <!--{/if}-->
+                            <!--{if $one['ship_state']=='N'}-->
+                            <a href="/ajax/xuly.php?action=giaohang&id={$one['id']}" class="ajaxlink" ask="Bạn có chắc đơn hàng này đã giao hàng rồi hay không?">Giao hàng</a>
+                            <!--{/if}-->
+                        <!--{elseif $one['order_state']=='success'}-->
+                        <font style="color:red">Thành công</font>
+                        <!--{else}-->
+                        <font style="color:red">Đã hủy</font>
+                        <!--{/if}-->
+                        </td>
+					</tr>
+					<!--{/loop}-->
+					<tr><td colspan="10">{$pagestring}</tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

@@ -1,0 +1,20 @@
+<div id="NewsContent">
+    <div class="divHeaderTitle" style="text-transform:uppercase"><span>${get_name_cates($cate_id)}</span></div>
+    <!--{loop $news $index $one}-->
+    <div class="divNewsItem">
+        <div class="divTitle">
+            <span><a href="${rewrite_news_id($one[id])}">{$one['title']}</a></span><span>${date('H:i, d-m-Y',$one['create_time'])}</span>
+        </div>
+        <div class="clear"></div>
+        <div class="divContent">
+            <div style="float: left;padding: 0 5px 5px 0;"><img alt="{$one['title']}" src="/static/{$one['image']}" height="100" /></div>
+            {$one['news_desc']}
+            <a class="lViewMore" href="${rewrite_news_id($one[id])}">Xem chi tiết</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--{/loop}-->
+    <div class="clear"></div>
+    {$pagestring}
+    <div class="clear"></div>
+</div><!--End news content-->

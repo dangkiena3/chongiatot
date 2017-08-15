@@ -1,0 +1,97 @@
+<div class="vcontent">
+	<h1 class="vtop_title">
+    	<span>Chi tiết voucher</span>
+        <span class="vfilter">
+        	<a href="/Cho-Voucher" title="Tất cả">Tất cả</a>
+        	<a href="/Cho-Voucher/Mua" title="Mua">Mua</a>
+            <a href="/Cho-Voucher/Ban" title="Bán">Bán</a>
+            <a href="/Cho-Voucher/Dang-Tin" title="Đăng tin" class="dangtin">Đăng tin</a>
+        </span>
+  	</h1>
+    <div class="detail-content">
+        <div class="toptitle">
+        	<h1>{$vmarket['title']}</h1>
+        </div>
+        <div class="vdcontent">{$vmarket['content']}</div>
+        <div class="moreinfo">
+            <span class="user"><img src="${team_image($user['avatar'])}" width="16" />{$user['realname']}</span>
+            <span class="user">${Utility::HumanTime($vmarket['create_time'])}</span>
+            <span class="user">Đã xem: {$vmarket['view']}</span>
+        </div>
+        <div class="vcomment">
+       		<h2>Có {$vcmt_total} bình luận</h2>
+            <ul class="list-comment">
+            	<!--{loop $vcomments $index $one}-->
+                <!--${
+                	$users = Table::Fetch('user', $one['user_id']);
+                }-->
+            	<li>
+                	<img src="${team_image($users['avatar'])}" width="64" />
+                    <h2>{$users['realname']}</h2>
+                    <p>{$one['content']}</p>
+                    <div class="cmt_info">
+                    	<span>${Utility::HumanTime($one['create_time'])}</span>
+                        <span><a class="ajaxlink" ask="Bạn có muốn xóa bàn luận này không?">Xóa</a></span>          	
+                    </div>
+                </li>
+                <!--{/loop}-->
+            </ul>
+            <script language="javascript">
+				jQuery('a.ajaxlink').click(function () {
+					if (jQuery(this).attr('no') == 'yes') return false;
+					var link = jQuery(this).attr('href');
+					var ask = jQuery(this).attr('ask');
+					if (link.indexOf('/delete') > 0 && !confirm('ç¡®å®šåˆ é™¤æœ¬æ�¡è®°å½•å�—ï¼Ÿ')) {
+						return false
+					} else if (ask && !confirm(ask)) {
+						return false
+					}
+					X.get(jQuery(this).attr('href'));
+					return false
+				});
+			</script>
+            <div class="clear"></div>
+            <div class="frbinhluan">
+            <!--{if $login_user_id}-->
+            <form action="/Cho-Voucher/Binh-Luan" method="post" id="frbinhluan">
+            	<textarea name="content" id="content"></textarea>
+                <input type="submit" name="" value="Gửi" />
+                <input type="hidden" name="vmarket_id" value="{$id}" />
+                <input type="hidden" name="pid" value="0" />
+                <input type="hidden" name="type" value="comment" />
+            </form>
+            <!--{else}-->
+            <p>Xin vui lòng <a href="javascript:void(0);" class="vlogin">đăng nhập</a> hoặc <a href="javascript:void(0);" class="vregist">đăng ký</a> để bàn luận</p>
+            <!--{/if}-->
+            </div>
+        </div>
+    </div>
+    <div class="vads_left">
+    	<!--${
+    	$ads_vrights = DB::LimitQuery('adsense', array(
+        	'condition' => array('display'=>'Y', 'pos_ads'=>'vright'),
+            'order' => 'ORDER BY order_sort ASC, id DESC',
+			'size' => $INI['system']['vright_ads_item'],
+        ));
+        }-->
+    	<ul>
+        	<!--{loop $ads_vrights $index $one}-->
+        	<li>
+            	<a href="{$one['url']}" title="{$one['name']}" target="_blank">
+                	<img src="${team_image($one['image'])}" alt="{$one['name']} ads by {$tenngan}" width="200" />
+             	</a>
+     		</li>
+            <!--{/loop}-->
+        </ul>
+    </div>
+    <!--<div class="clear"></div>
+    <div class="other-content">
+    	<h2>Tin xem nhiều</h2>
+    	<ul>
+        	<!--{loop $vothers $one}-->
+        	<!--<li><a href="${rewrite_vmarket_id($one['id'])}" title="{$one[desc]}">{$one['title']}</a></li>
+            <!--{/loop}-->
+        <!--</ul>
+    </div>-->
+</div>
+

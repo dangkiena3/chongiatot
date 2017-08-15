@@ -1,0 +1,6 @@
+﻿.divArticle{padding:10px 10px 30px 10px;background-color:#fff;width:770px;margin-left:10px}
+.divArticle .divHeader{
+	background:url("images/Dot.png") no-repeat scroll left top transparent;
+	color:#589b01;font-size:18px;font-weight:bold;
+	margin:10px 10px 10px 0;padding:7px 36px;text-transform:uppercase}
+.divArticle .divContent{text-align:justify}

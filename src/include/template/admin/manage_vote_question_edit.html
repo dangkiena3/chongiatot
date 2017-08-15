@@ -1,0 +1,65 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="help">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_vote('question')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>
+						<!--{if $action == 'add'}-->
+							Thêm câu hỏi
+						<!--{else}-->
+							Sửa câu hỏi
+                        <!--{/if}-->
+					</h2>
+					<ul class="filter">
+						<li>
+						</li>
+						<li>
+							<a href="question.php?action=list-is_show-1">Danh sách câu hỏi đã được kiểm tra</a>
+							<a href="question.php">Danh sách tất cả câu hỏi</a>
+						</li>
+					</ul>
+				</div>
+                <div class="sect">
+					<form method="post" action="?action=${$action=='add' ? 'add_submit' : 'edit_submit'}">
+						<div class="field">
+                            <label>Title</label>
+                            <input type="text" size="30" name="question[title]" class="f-input" value="{$question['title']}"/>
+                            <span class="inputtip">Không nhập nhiều hơn 1000 ký tự</span>
+                        </div>
+						<div class="field">
+                            <label>Kiểu</label>
+                            <input type="radio" name="question[type]" value="radio" <!--{if $question['type'] != 'checkbox'}-->Đã kiểm tra<!--{/if}-->/>Chọn 1
+                            <input type="radio" name="question[type]" value="checkbox" <!--{if $question['type'] == 'checkbox'}-->Đã kiểm tra<!--{/if}-->/>Chọn nhiều
+                        </div>
+						<div class="field">
+                            <label>Hiển thị hay không</label>
+                            <input type="radio" name="question[is_show]" value="1" <!--{if $question['is_show']}-->Đã kiểm tra<!--{/if}-->/>Hiển thị
+                            <input type="radio" name="question[is_show]" value="0" <!--{if !$question['is_show']}-->Đã kiểm tra<!--{/if}-->/>Ẩn
+                        </div>
+						<div class="field">
+                            <label>Sắp xếp</label>
+                            <input type="text" size="30" name="question[order]" class="number" value="{$question['order']}"/>
+                        </div>
+                        <div class="act">
+							<input type="hidden" name="question[id]" value="{$question['id']}"/>
+                            <input type="submit" value="<!--{if $action=='add'}-->Thêm<!--{else}-->Sửa<!--{/if}-->" name="commit" class="formbutton"/>
+                        </div>
+					</form>
+				</div>
+			</div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include footer}-->

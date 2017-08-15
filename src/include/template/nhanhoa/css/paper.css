@@ -1,0 +1,84 @@
+﻿.divPager
+{
+    text-align: right;
+    float: right;
+    padding-top: 20px;
+}
+
+.divPager div
+{
+    float: left;
+}
+
+.divPager a, .divPager span
+{
+    float: left;
+}
+
+.divPager .spText
+{
+    color: #595959;
+    line-height: 20px;
+    font-size: 10pt;
+}
+
+.divPager .btnFirst
+{
+    background-image: url("images/PagerPreview.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    width: 20px;
+    height: 24px;
+    margin: auto;
+    margin: 0 10px;
+}
+
+.divPager .btnLast
+{
+    background-image: url("images/PagerNext.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    width: 20px;
+    height: 24px;
+    margin: auto;
+    margin: 0 10px;
+}
+
+.divPager .selected
+{
+    background-image: url("images/PagerBg.png");
+    background-position: 0 -25px;
+    background-repeat: no-repeat;
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 21px;
+    font-weight: bold;
+    text-align: center;
+    color: #FFF;
+    margin: auto;
+    margin: 0 5px;    
+}
+
+.divPager .btnNomarl
+{
+    background-image: url("images/PagerBg.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 21px;
+    font-weight: bold;
+    text-align: center;    
+    margin: auto;
+    margin: 0 5px;
+}
+
+.divPager .btnFirst:hover, .divPager .btnNomarl:hover, .divPager .btnLast:hover
+{
+    background-position: 0 -25px;
+    color: #FFF;
+}

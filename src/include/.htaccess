@@ -1,0 +1,456 @@
+RewriteEngine On
+
+
+
+ErrorDocument 404 /noindex.html
+
+RewriteCond %{HTTP_HOST} ^www.chongiatot.vn [NC]
+RewriteRule ^(.*)$ http://chongiatot.vn/$1 [L,R=301]
+RewriteRule ^(.*)index.php$ /$1 [R=301,L]
+
+
+# index.php to /
+RewriteRule ^(.*)index.php$ /$1 [R=301,L]
+
+
+#news
+
+RewriteRule ^tin-tuc/(.*).html$ tin-tuc/detail.php?gid=$1&page=$2 [L]
+
+#team
+
+RewriteRule ^(.*)/(.*)-([0-9]*).html$ team.php?name=$1&product=$2&id=$3 [L]
+
+
+
+# index.php to /
+
+RewriteRule ^(.*)index.php$ /$1 [R=301,L]
+
+
+
+#top menu
+
+RewriteRule ^trang-chu$ index.php
+
+RewriteRule ^Gia-Tot-Hom-Nay$ main.php
+
+RewriteRule ^Gia-Tot-Gan-Day$ team/index.php
+
+RewriteRule ^help/huong-dan-mua-hang.html$ help/tour.php
+
+RewriteRule ^forum/binh-luan.html$ forum/index.php
+
+RewriteRule ^chon-thanh-pho.html$ city.php
+
+RewriteRule ^khach-hang/gui-den-ban-be.html$ account/invite.php
+
+
+
+
+
+#-----------------------------------
+RewriteRule ^nhan-sam-han-quoc.html$ team.php?gid=287
+RewriteRule ^nam-linh-chi-han-quoc.html$ team.php?gid=288
+RewriteRule ^dong-trung-an-cung.html$ team.php?gid=289
+RewriteRule ^suc-khoe.html$ team.php?gid=284
+RewriteRule ^my-pham.html$ team.php?gid=285
+RewriteRule ^thoi-trang-phu-kien.html$ team.php?gid=282
+RewriteRule ^cong-nghe-dien-tu.html$ team.php?gid=290
+RewriteRule ^thuc-pham.html$ team.php?gid=281
+RewriteRule ^hang-gia-dung.html$ team.php?gid=286
+RewriteRule ^order-hang-han-quoc.html$ team.php?gid=217
+RewriteRule ^order-hang-nhat-ban.html$ team.php?gid=208
+RewriteRule ^order-hang-uc.html$ team.php?gid=283
+RewriteRule ^san-pham-khac.html$ team.php?gid=291
+
+RewriteRule ^nam-linh-chi-nui.html$ team.php?gid=292
+RewriteRule ^cao-linhchi.html$ team.php?gid=293
+RewriteRule ^nam-thuong-hoang.html$ team.php?gid=221
+RewriteRule ^nam-linh-chi-do.html$ team.php?gid=220
+RewriteRule ^linh-chi-vien.html$ team.php?gid=294
+RewriteRule ^hong-sam-kho.html$ team.php?gid=218
+RewriteRule ^cao-hong-sam.html$ team.php?gid=295
+RewriteRule ^vien-sam-nhung.html$ team.php?gid=296
+RewriteRule ^sam-tam-mat-ong.html$ team.php?gid=297
+RewriteRule ^hong-sam-baby.html$ team.php?gid=298
+RewriteRule ^order-sam-tuoi.html$ team.php?gid=299
+RewriteRule ^dong-trung-ha-thao-dang-nuoc-vien.html$ team.php?gid=300
+RewriteRule ^dong-trung-ha-thao-dang-nuoc.html$ team.php?gid=219
+RewriteRule ^an-cung-nguu-hoan.html$ team.php?gid=280
+#-----------------------------------
+
+
+
+
+
+#account
+RewriteRule ^trang-ca-nhan$ account/index.php
+
+RewriteRule ^trang-ca-nhan/thong-tin-cua-toi.html$ account/index.php
+
+RewriteRule ^trang-ca-nhan/don-hang-cua-toi.html$ account/myorder.php
+
+RewriteRule ^trang-ca-nhan/tai-san$ account/mymoney.php
+
+RewriteRule ^trang-ca-nhan/deal-yeu-thich$ account/favourite.php
+
+
+
+#cart
+
+RewriteRule ^gio-hang$ team/cart.php
+
+RewriteRule ^ThanhToan$ team/checkout.php
+
+RewriteRule ^ThanhToan/AcceptOrder$ team/checkout_accept.php
+
+RewriteRule ^DonHang$ team/order_success.php
+
+RewriteRule ^ThanhToan/OrderNotLogIn$ team/checkout.php?p=ordernotlogin
+
+RewriteRule ^dat-mua/([0-9]*)/([0-9]*)$ team/addonecart.php?option=$1&quantity=$2
+
+
+
+#captcha
+
+RewriteRule ^captcha$ captcha/captcha.php
+
+
+
+RewriteRule ^tags/(.*).html$ team/tags.php?key=$1 [L]
+
+#static pages
+
+RewriteRule ^hoi-dap.html$ staticpage.php?p=help_faqs
+
+RewriteRule ^huong-dan-mua-hang.html$ staticpage.php?p=help_tour
+
+RewriteRule ^hinh-thuc-thanh-toan.html$ staticpage.php?p=help_payment
+
+RewriteRule ^hop-tac-kinh-doanh.html$ staticpage.php?p=feedback_sellerfaq
+
+RewriteRule ^api$ staticpage.php?p=help_api
+
+RewriteRule ^lien-he.html$ staticpage.php?p=about_contact
+
+RewriteRule ^ve-chung-toi.html$ staticpage.php?p=about_us
+
+RewriteRule ^tuyen-dung.html$ staticpage.php?p=about_job
+
+RewriteRule ^dieu-khoan-su-dung.html$ staticpage.php?p=about_terms
+
+RewriteRule ^chinh-sach-rieng-tu.html$ staticpage.php?p=about_privacy
+
+RewriteRule ^tien-tich-luy-la-gi$ staticpage.php?p=about_credit
+
+RewriteRule ^dang-ky-mo-shop$ staticpage.php?p=reg_shop
+
+RewriteRule ^quy-che-san-giao-dich.html$ staticpage.php?p=quychesangiaodich
+
+RewriteRule ^giao-nhan-hang.html$ staticpage.php?p=delivery_item
+
+RewriteRule ^tra-hang-hoan-tien.html$ staticpage.php?p=money
+
+RewriteRule ^cach-nhan-tien-thuong$ staticpage.php?p=bonus
+
+RewriteRule ^tai-khoan-don-hang.html$ staticpage.php?p=account
+
+RewriteRule ^su-dung-phieu.html$ staticpage.php?p=voucher
+
+RewriteRule ^cam-ket-ban-hang.html$ staticpage.php?p=camket
+
+RewriteRule ^quy-trinh-giao-nhan.html$ staticpage.php?p=giaonhan
+
+RewriteRule ^quy-dinh-bao-hanh-doi-tra.html$ staticpage.php?p=doitra
+
+RewriteRule ^quy-dinh-mua-hang.html$ staticpage.php?p=muahang
+
+RewriteRule ^quy-dinh-ban-hang.html$ staticpage.php?p=banhang
+
+RewriteRule ^thong-bao.html$ staticpage.php?p=thongbao
+
+
+
+
+
+
+
+
+
+#menu user
+
+RewriteRule ^user/tien-ich.html$ coupon/index.php
+
+RewriteRule ^khach-hang/don-hang.html$ order/index.php
+
+RewriteRule ^user/so-du-tai-khoan.html$ credit/index.php
+
+RewriteRule ^user/nap-tien.html$ credit/charge.php
+
+RewriteRule ^user/nap-tien.html/xac-nhan$ order/charge.php
+
+RewriteRule ^khach-hang/cai-dat-tai-khoan.html$ account/settings.php
+
+RewriteRule ^khach-hang/cau-hoi.html$ account/myask.php
+
+RewriteRule ^user/thoat.html$ account/logout.php
+
+RewriteRule ^dang-nhap.html$ account/signup.php?nhanhoapage=login
+
+RewriteRule ^dang-ky.html$ account/signup.php?nhanhoapage=reg
+
+RewriteRule ^quen-mat-khau.html$ account/repass.php
+
+
+
+#footer menu
+
+RewriteRule ^thong-tin-phan-hoi.html$ feedback/suggest.php
+
+RewriteRule ^help/huong-dan-thanh-toan.html$ help/payment.php
+
+RewriteRule ^help/hoi-dap.html$ help/faqs.php
+
+RewriteRule ^help/api/api.html$ help/api.php
+
+RewriteRule ^partner/lien-he-hop-tac.html$ feedback/seller.php
+
+RewriteRule ^partner/danh-cho-doi-tac.html$ biz/login.php
+
+RewriteRule ^us/ve-chung-toi.html$ about/us.php
+
+RewriteRule ^us/co-hoi-nghe-nghiep.html$ about/job.php
+
+RewriteRule ^us/lien-he.html$ about/contact.php
+
+RewriteRule ^nhan-tin.html$ subscribe.php
+
+RewriteRule ^rss.html$ feed.php
+
+RewriteRule ^us/dieu-khoan-su-dung.html$ about/terms.php
+
+RewriteRule ^us/chinh-sach-rieng-tu.html$ about/privacy.php
+
+RewriteRule ^order/thong-bao-chuyen-khoan.html$ order/send2us.php
+
+RewriteRule ^hop-tac-kinh-doanh.html$ feedback/sellerfaq.php
+
+RewriteRule ^danh-cho-doanh-nghiep.html$ feedback/seller.php
+
+
+
+#Tim kiem
+
+RewriteRule ^Tim-kiem$ team/search.php
+
+
+
+#gio hang
+
+RewriteRule ^khach-hang/don-hang-tat-ca.html$ order/index.php?s=index
+
+RewriteRule ^khach-hang/don-hang-chua-thanh-toan.html$ order/index.php?s=unpay
+
+RewriteRule ^khach-hang/don-hang-da-thanh-toan.html$ order/index.php?s=pay
+
+
+
+#forum
+
+RewriteRule ^forum/tat-ca.html$ forum/index.php
+
+RewriteRule ^forum/khu-vuc.html$ forum/city.php
+
+RewriteRule ^forum/thao-luan-chung.html$ forum/public.php
+
+RewriteRule ^forum/tao-chu-de-moi.html$ forum/new.php
+
+
+
+
+
+#seo page
+
+RewriteRule ^nhommua$ index.php [L]
+
+RewriteRule ^nhommua/$ index.php [L]
+
+RewriteRule ^hotdeal$ index.php [L]
+
+RewriteRule ^hotdeal/$ index.php [L]
+
+RewriteRule ^dealsoc$ index.php [L]
+
+RewriteRule ^dealsoc/$ index.php [L]
+
+RewriteRule ^cucre$ index.php [L]
+
+RewriteRule ^cucre/$ index.php [L]
+
+RewriteRule ^zalora$ index.php [L]
+
+RewriteRule ^zalora/$ index.php [L]
+
+RewriteRule ^lazada$ index.php [L]
+
+RewriteRule ^lazada/$ index.php [L]
+
+RewriteRule ^cung-mua$ index.php [L]
+
+RewriteRule ^cung-mua/$ index.php [L]
+
+RewriteRule ^cungmua$ index.php [L]
+
+RewriteRule ^cungmua/$ index.php [L]
+
+RewriteRule ^cungmua.com$ index.php [L]
+
+RewriteRule ^cungmua.com/$ index.php [L]
+
+RewriteRule ^muachung.vn$ index.php [L]
+
+RewriteRule ^muachung.vn/$ index.php [L]
+
+RewriteRule ^mua-chung$ index.php [L]
+
+RewriteRule ^mua-chung/$ index.php [L]
+
+RewriteRule ^muachung$ index.php [L]
+
+RewriteRule ^muachung/$ index.php [L]
+
+RewriteRule ^nhommua.com$ index.php [L]
+
+RewriteRule ^nhommua.com$ index.php [L]
+
+RewriteRule ^nhom-mua$ index.php [L]
+
+RewriteRule ^nhom-mua$ index.php [L]
+
+RewriteRule ^nhanhmua.vn$ index.php [L]
+
+RewriteRule ^nhanhmua.vn/$ index.php [L]
+
+RewriteRule ^nhanh-mua$ index.php [L]
+
+RewriteRule ^nhanh-mua/$ index.php [L]
+
+RewriteRule ^sieumua.com$ index.php [L]
+
+RewriteRule ^sieumua.com/$ index.php [L]
+
+RewriteRule ^sieu-mua$ index.php [L]
+
+RewriteRule ^sieu-mua/$ index.php [L]
+
+RewriteRule ^sieumua$ index.php [L]
+
+RewriteRule ^sieumua/$ index.php [L]
+
+RewriteRule ^remoingay$ index.php [L]
+
+RewriteRule ^remoingay/$ index.php [L]
+
+RewriteRule ^remoingay.com$ index.php [L]
+
+RewriteRule ^remoingay.com/$ index.php [L]
+
+RewriteRule ^dealvip.vn$ index.php [L]
+
+RewriteRule ^dealvip.vn/$ index.php [L]
+
+RewriteRule ^deal-vip$ index.php [L]
+
+RewriteRule ^deal-vip/$ index.php [L]
+
+RewriteRule ^nhanhmua$ index.php [L]
+
+RewriteRule ^nhanhmua/$ index.php [L]
+
+RewriteRule ^dealvip$ index.php [L]
+
+RewriteRule ^dealvip/$ index.php [L]
+
+RewriteRule ^re-moi-ngay$ index.php [L]
+
+RewriteRule ^re-moi-ngay/$ index.php [L]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#adsense
+
+RewriteRule ^ads.html$ ads.php
+
+RewriteRule ^ads_cmrv.html$ ads2.php
+
+
+
+#left panel
+
+RewriteRule ^comment.html$ team/ask.php
+
+RewriteRule ^send2group.html$ account/send2group.php
+
+
+
+#openID
+
+RewriteRule ^user/www.google.com$ forward.php?openID=google
+
+RewriteRule ^user/www.yahoo.com$ forward.php?openID=yahoo
+
+RewriteRule ^user/www.aol.com$ forward.php?openID=aol
+
+RewriteRule ^user/www.myspace.com$ forward.php?openID=myspace
+
+RewriteRule ^user/www.openid.com$ forward.php?openID=openid
+
+RewriteRule ^user/www.wordpress.com$ forward.php?openID=wordpress
+
+
+
+#deny get banwidth
+
+#RewriteCond %{HTTP_REFERER} !^$
+
+#RewriteCond %{HTTP_REFERER} !^http://(www\.)?deal\.com/.*$ [NC]
+
+#RewriteRule \.(gif|jpg)$ http://nttoan.com/Logo.gif [R,L]
+
+
+
+#get error
+
+#Authorization Required
+
+ErrorDocument 401 /alert/error.php?code=401
+
+#Bad request
+
+ErrorDocument 400 /alert/error.php?code=400
+
+#Forbidden khong duoc vao
+
+ErrorDocument 403 /alert/error.php?code=403
+
+
+
+#Internal Server Error
+
+ErrorDocument 500 /alert/error.php?code=500
+
+

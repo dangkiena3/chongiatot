@@ -1,0 +1,35 @@
+<div style="background-color:#fff;padding-bottom:30px;padding-top:10px;" class="personal_page">
+    <div class="change_pass_box">
+        <div class="changepass_title">
+            <span class="changepass_title_ico">
+                <img src="{$template_path}/title_ico.png" alt=""></span><span class="changepass_title_text">đổi mật khẩu</span>
+        </div>
+        <form method="post" name="frmChangeForGotPass" id="frmChangeForGotPass">
+        
+        <div class="changepass_content">
+            <div class="changepass_item">
+                <span class="item_l">Tài khoản đăng nhập:</span> <span style="float: left; margin-left: 5px;">
+                    <b>{$email}</b> 
+                </span>
+                <input type="hidden" value="{$email}" id="tbxEmail" name="tbxEmail">
+                <input type="hidden" value="{$code}" id="tbxForGotCode" name="tbxForGotCode">
+            </div>
+            <div class="changepass_item">
+                <span class="item_l">Mật khẩu mới:</span> 
+             	<span class="item_r"><input type="password" name="tbxNewPass" id="tbxNewPass"></span>
+            </div>
+            <div class="changepass_item">
+                <span class="item_l">Xác nhận mật khẩu:</span> 
+                <span class="item_r"><input type="password" name="tbxReNewPass" id="tbxReNewPass"></span>
+            </div>
+            <div class="changepass_btn">
+                <span class="item_l">&nbsp;</span> 
+                <span class="item_r_changeforgotpass">
+                	<a href="javascript:">Cập nhật</a></span> 
+                    <span class="waiting_updatepass"><img src="{$template_path}/ajax-loader(1).gif" alt="">
+             	</span>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

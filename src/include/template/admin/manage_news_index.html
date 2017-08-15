@@ -1,0 +1,70 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+<div class="dashboard" id="dashboard">
+		<ul>
+		<li class="current"><a href="/manage/news/index.php">Danh sách</a><span></span></li>
+		<li><a href="/manage/news/edit.php">Thêm mới</a><span></span></li>
+
+		</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+			
+            <div class="box-content">
+                <div class="head">				
+                    <h2>Danh sách tin tức: </h2>
+			 <span style="color:red; font-size:18px; font-weight:bold">{$count}</span>
+                    <ul class="filter">
+                        <li>
+                        <form method="get">
+							ID: <input type="text" name="id" class="h-input" value="${htmlspecialchars($id)}" >&nbsp;&nbsp;
+                            Tiêu đề: <input type="text" name="ptitle" class="h-input" value="${htmlspecialchars($ptitle)}" >&nbsp;&nbsp;
+							<select style="width:160px;" name="cate" class="h-input"><option value="">Chọn chuyên mục</option>${Utility::Option($cate_news)}</select>
+                            <input type="submit" value="Tìm" class="formbutton"  style="padding:1px 6px;"/>
+                        </form>
+                        </li>
+                    </ul>
+				</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr><th width="20">ID</th>
+					<th width="350">Tiêu đề</th>
+					<th width="70">Sắp xếp</th>
+					<th width="80" nowrap>Chuyên mục</th>
+					<th width="100">Cập nhật</th>
+					<th width="50">Hình</th>			
+					<th width="140">Thao tác</th>
+					</tr>
+					<!--{loop $newss $index $one}-->
+					<!--${$oldstate = $one['state']}-->
+					<!--${$one['state'] = team_state($one)}-->
+					<tr ${$index%2?'':'class="alt"'} id="team-list-id-{$one['id']}">
+						<td>{$one['id']}</a></td>
+						<td  style="text-align:left;">						
+							<a class="deal-title" href="${rewrite_news_id($one['id'])}" target="_blank" title="{$one['title']}">{$one['title']}</a>
+						</td>
+                        <td nowrap>{$one['sort_order']}</td>
+						<td nowrap>${get_name_cates($one['cate_id'])}                    
+                        </td>
+						<td nowrap>${date('H:m d-m-Y',$one['create_time'])}</td>
+						<td nowrap>${$one['image']?'x':''}</td>
+						<td class="op" nowrap><a href="/manage/news/edit.php?action=edit&id={$one['id']}">Sửa</a> | <a href="/ajax/manage.php?action=newsremove&id={$one['id']}" class="ajaxlink" ask="Bạn có chắc muốn xóa không?">xoá</a></td>
+
+					</tr>
+					<!--{/loop}-->
+					<tr><td colspan="8">{$pagestring}</tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

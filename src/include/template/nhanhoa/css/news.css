@@ -1,0 +1,104 @@
+﻿#NewsContent
+{
+    padding: 0px 10px 10px 10px;
+}
+
+#NewsContent .divHeaderTitle
+{   
+    background-image: url('images/News-icon.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding: 9px 0px 0px 40px;
+}
+
+#NewsContent .divHeaderTitle span
+{
+    color: #333;
+    font-size: 16pt;
+    font-weight: bold;
+	text-transform:uppercase
+}
+
+#NewsContent .divNewsItem
+{
+    border-bottom: 1px dotted #CCC;
+}
+
+#NewsContent .divNewsItem .divTitle
+{
+    padding: 10px 0px;
+    float: left;
+}
+
+#NewsContent .divNewsItem .divTitle span
+{
+    float: left;
+}
+
+#NewsContent .divNewsItem .divTitle span a
+{
+    color: #7fac04;
+    font-weight: bold;
+    font-size: 12pt;
+    width: 620px;
+    display: block;
+}
+
+#NewsContent .divNewsItem .divTitle span a:hover
+{
+    color: #e45e08;
+}
+
+#NewsContent .divNewsItem .divContent
+{
+    font-size: 12pt;
+    text-align: justify;
+    padding: 0px 0px 20px 0px;
+    position: relative;
+}
+
+#NewsContent .divNewsItem .divContent img
+{
+    max-width: 700px;
+}
+
+#NewsContent .divNewsItem .divContent .lViewMore
+{
+    color: #7fac04;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    font-size: 11pt;
+    padding: 20px 0px;
+}
+
+#NewsContent .divNewsItem .divContent .lViewMore:hover
+{
+    color: #e45e08;
+}
+
+.divOtherNews .divTitle
+{
+    line-height: 30px;
+    font-size: 13pt;
+    font-weight: bold;    
+    width: 400px;
+}
+
+.divOtherNews .divContent ul li
+{
+    margin: 5px 0px 5px 20px;
+    color: #7fac04;
+}
+
+.divOtherNews .divContent ul li a
+{
+    color: #069;
+    font-weight:normal;
+}
+
+.divOtherNews .divContent ul li a:hover
+{
+    text-decoration:underline;
+	
+}

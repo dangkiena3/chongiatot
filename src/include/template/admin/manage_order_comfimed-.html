@@ -1,0 +1,84 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_order('comfimed')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                	<h2>Đơn hàng</h2>
+                    <ul class="filter">
+                        <li>
+                        <form method="get">
+                            Mã ĐH<input type="text" name="order_code" class="h-input number" style="width:80px" value="${htmlspecialchars($order_code)}" />
+                            Email<input type="text" name="email" class="h-input" style="width:120px" value="${htmlspecialchars($email)}" />
+                            SĐT<input type="text" name="mobile" class="h-input number" style="width:90px" value="${htmlspecialchars($mobile)}" />                            
+                            <input type="submit" value="Tìm" class="formbutton"  style="padding:1px 6px;"/>
+                        </form>
+                        </li>
+                    </ul>
+               	</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr class="forum_title_tr">
+                        <th width="40">ID</th>
+                        <th>Mã ĐH</th>
+                        <th width="150">Tên deal</th>
+                        <th width="200">Địa chỉ</th>
+                        <th width="150">Khách hàng</th>
+                        <th width="20" nowrap>SL</th>
+                        <th width="40" nowrap>Đơn giá</th>
+                        <th width="50" nowrap>T.Tiền</th>      
+                        <th width="50" nowrap>Tình trạng</th>
+                  	</tr>
+					<!--{loop $orders $ord}-->
+                    <!--${
+						$cond = array(
+						'order_id' => $ord['id'],
+						'track' => $track,
+						);
+						
+						$teams = DB::LimitQuery('team_order', array(
+							'condition' => $cond,
+							'order' => 'ORDER BY id DESC',							
+						));
+                    
+                    }-->
+					<!--{loop $teams $index $one}-->
+					<!--{if $one['order_id']==$ord['id']}-->
+					<!--${ 	$team = Table::Fetch('team',$one['team_id']);
+							$users = Table::Fetch('user',$ord['user_id']);							
+					}-->
+					<tr ${$index%2?'':'class="alt"'} id="order-list-id-{$one['id']}">
+						<td>{$one['id']}</td>
+						<td><a href="/ajax/manage.php?action=orderview&id={$one['id']}" class="ajaxlink">{$ord['order_code']}</a></td>
+                        <td>{$team['product']}</td>
+						<td>{$ord['address'].', '.get_name_local($ord['district_id']).', '.get_name_local($ord['province_id'])}</td>
+						<td><a href="/ajax/manage.php?action=userview&id={$ord['user_id']}" class="ajaxlink">{$users['realname']}<br/>{$users['mobile']}</a></td>
+						<td>{$one['quantity']}</td>
+						<td>${formatMoney($team['team_price'])}{$currency}</td>
+						<td>${formatMoney($team['team_price']*$one['quantity'])}{$currency}</td>				
+						<td class="op" nowrap style="text-align:center">
+                        <select name="cate" ONCHANGE="window.location='./success.php?act=tracking&idd={$one['id']}&value='+this.options[this.selectedIndex].value">${Utility::Option($tracking, $one['track'])} </select>
+                        </td>
+					</tr>
+					<!--{/if}-->
+					<!--{/loop}-->
+					<!--{/loop}-->
+					<tr><td colspan="10">{$pagestring}</tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

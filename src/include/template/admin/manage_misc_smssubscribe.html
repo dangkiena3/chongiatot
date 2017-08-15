@@ -1,0 +1,41 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_misc('smssubscribe')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>Danh sách đăng ký nhận SMS</h2>
+					<ul class="filter">
+						<li><form method="get">Thành phố:<input type="text" name="cs" value="${htmlspecialchars($cs)}" class="h-input" />&nbsp;Số di động:<input type="text" name="like" value="${htmlspecialchars($like)}" class="h-input" />&nbsp;<input type="submit" value="Filter" class="formbutton"  style="padding:1px 6px;"/><form></li>
+					</ul>
+				</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr><th width="350">Số di động</th><th width="80">Thành phố</th><th width="350">Mật mã</th><th width="80">Thao tác</th></tr>
+					<!--{loop $subscribes $index $one}-->
+					<tr ${$index%2?'':'class="alt"'} id="team-list-id-{$one['id']}">
+						<td nowrap><!--{if !empty($one['mobile'])}--><a href="/ajax/misc.php?action=sms&v={$one['mobile']}" class="ajaxlink" target="_blank" title="Bấm gửi để gửi tin nhắn đến số di động này">{$one['mobile']}</a><!--{/if}--></td>
+						<td nowrap>{$cities[$one['city_id']]['name']}</td>
+						<td nowrap>{$one['secret']}</td>
+						<td class="op" nowrap><a ask="Bạn có muốn xoá không?" href="/ajax/manage.php?action=smssubscriberemove&id={$one['id']}" class="ajaxlink">Xoá</a></td>
+					</tr>
+					<!--{/loop}-->
+					<tr><td colspan="6">{$pagestring}</tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

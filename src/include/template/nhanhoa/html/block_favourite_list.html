@@ -1,0 +1,67 @@
+<!--{loop $favs $one}-->
+<!--${
+    $team = Table::Fetch('team',$one['team_id']);
+    $id = $team['id'];
+}-->
+<div class="dealItem">
+    <div class="dealItemBackList">
+        <div class="blank-top">
+            <div class="saleOff">
+                <span>-${formatMoney(($team['market_price']-$team['team_price'])/$team['market_price']*100)}%</span>
+            </div>
+        </div>
+        <div class="left-info">
+            <div onclick="window.location='${rewrite_team_id($id)}'" style="cursor: pointer;" class="divIMGSlideShow">
+                <div class="ws_images">
+                    <span>
+                        <img alt="{$team['product']}" src="${team_image($team[image])}">
+                    </span>
+                </div>
+                <div class="ws_shadow">
+                </div>
+                <a title="{$team['product']}" class="linkToDetail" href="${rewrite_team_id($id)}"></a>
+            </div>
+            
+        </div>
+        <div class="right-info">
+            <div class="dealName">
+                <h2><a title="{$team['product']}" href="${rewrite_team_id($id)}">{$team['product']}</a></h2>
+            </div>
+            <div class="dealDescription">
+                <span class="description">{$team['title']}</span></div>
+            <div class="clear"></div>
+            <div class="dealPrice">
+                <span style="display: block; font-size: 130%; color: #595959;">Chỉ:</span>
+                <div class="price"><span>${formatMoney($team['team_price'])}</span></div>
+                <div class="divXem">
+                    <a title="{$team['product']}" class="btnXem" href="${rewrite_team_id($id)}"></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="dealInfo">
+                <ul>
+                    <li>
+                        <span class="info-item tien-tich-luy">Tiền tích lũy</span>
+                        <span class="loyalty-value">{$team['bonus']}</span>
+                    </li>
+                    <li>
+                        <span class="info-item">Giá trị</span> 
+                        <span class="value">${formatMoney($team['market_price'])}</span> 
+                    </li>
+                    <li>
+                        <span class="info-item">Tiết kiệm</span>
+                        <span class="save-value">${formatMoney($team['market_price']-$team['team_price'])}</span> 
+                    </li>
+                    <li class="last">
+                        <span class="info-item">Người mua</span> 
+                        <span class="nguoi-mua">{$team['now_number']}</span> 
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div remove="{$id}" title="Xóa khỏi danh sách của bạn" class="buttonRemoveItem"></div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!--{/loop}-->
