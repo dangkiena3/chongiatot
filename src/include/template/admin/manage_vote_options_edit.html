@@ -1,0 +1,65 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="help">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_vote('question')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>Thêm tuỳ chọn cho câu hỏi "{$question['title']}"</h2>
+					<ul class="filter">
+						<li>
+							<a href="options.php?action=list&question_id={$question_id}">Danh sách tuỳ chọn</a>
+						</li>
+						<li>
+							<a href="question.php">Danh sách câu hỏi</a>
+						</li>
+					</ul>
+				</div>
+                <div class="sect">
+					<form method="post" action="?action=${$action=='add' ? 'add_submit' : 'edit_submit'}">
+						<div class="field">
+                            <label>Tên</label>
+                            <input type="text" size="30" name="options[name]" class="f-input" value="{$options['name']}"/>
+                            <span class="inputtip">Không nhập hơn 60 ký tự</span>
+                        </div>
+						<div class="field">
+                            <label>Bắt đầu từ 1 dòng mới hay không</label>
+                            <input type="radio" name="options[is_br]" value="1" <!--{if $options['is_br']}-->Đã kiểm tra<!--{/if}-->/>Có
+                            <input type="radio" name="options[is_br]" value="0" <!--{if !$options['is_br']}-->Đã kiểm tra<!--{/if}-->/>Không
+                        </div>
+						<div class="field">
+                            <label>Với 1 khung frame hay không</label>
+                            <input type="radio" name="options[is_input]" value="1" <!--{if $options['is_input']}-->Đã kiểm tra<!--{/if}-->/>Có
+                            <input type="radio" name="options[is_input]" value="0" <!--{if !$options['is_input']}-->Đã kiểm tra<!--{/if}-->/>Không
+                        </div>
+						<div class="field">
+                            <label>Hienr thị hay không</label>
+                            <input type="radio" name="options[is_show]" value="1" <!--{if $options['is_show']}-->Đã kiểm tra<!--{/if}-->/>Hiển thị
+                            <input type="radio" name="options[is_show]" value="0" <!--{if !$options['is_show']}-->Đã kiểm tra<!--{/if}-->/>Ẩn
+                        </div>
+						<div class="field">
+                            <label>sort</label>
+                            <input type="text" size="30" name="options[order]" class="number" value="{$options['order']}"/>
+                        </div>
+                        <div class="act">
+							<input type="hidden" name="question_id" value="{$question['id']}"/>
+							<input type="hidden" name="options[id]" value="{$options['id']}"/>
+                            <input type="submit" value="<!--{if $action=='add'}-->Thêm<!--{else}-->Sửa<!--{/if}-->" name="commit" class="formbutton"/>
+                        </div>
+					</form>
+				</div>
+			</div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include footer}-->

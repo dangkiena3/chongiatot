@@ -1,0 +1,130 @@
+﻿.vcontent{width:790px; margin:10px 0 0 10px; padding:0; float:left}
+.vcontent .vads_left{width:200px; float:left; margin:5px 0 0 8px;}
+.vcontent .vads_left li{float:left;}
+.vcontent .vads_left li img{width:200px;}
+.vcontent h1.vtop_title{font-size: 18px; color:#F77A00; border-bottom:2px solid #F77A00; padding:5px 10px; margin-bottom:0;}
+.vcontent h1.vtop_title span{padding-left:10px}
+.vcontent h1.vtop_title span.vfilter{float:right;}
+.vcontent h1.vtop_title span.vfilter a{font-size:13px; border-right:1px solid #ccc; padding:0 5px;}
+.vcontent h1.vtop_title span.vfilter a.vselected{color:#F77A00}
+.vcontent h1.vtop_title span.vfilter a:last-child{border:none;}
+.vcontent .list-content{
+	width:580px;
+	float:left
+}
+.vcontent .list-content ul{}
+.vcontent .list-content li{
+	float:left; display:inline; 
+	background:#EDD9C7; width:560px; 
+	padding:5px 10px; margin:3px 0;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px
+
+}
+.vcontent .list-content li h2{
+	padding:0 0 0 22px; line-height:16px; 
+	font-size:11pt; color:#6CAA09;
+	font-weight:bold;
+}
+.vcontent .list-content li h2.sell{background:url(images/sell-icon.png) no-repeat;}
+.vcontent .list-content li h2.buy{background:url(images/buy-icon.png) no-repeat;}
+.vcontent .list-content li p{padding-left:22px;}
+.vcontent .list-content li p.vdesc{
+	margin:10px 15px;	
+	font-size:11pt;
+}
+.vcontent .list-content li p.vinfo{}
+.vcontent .list-content li p.vinfo span{border-right:1px solid #C60; padding:0px 5px; line-height:16px;}
+.vcontent .list-content li p.vinfo span:last-child{border:none}
+.vcontent .list-content li p.vinfo span.user{font-weight:bold}
+.vcontent .list-content li p.vinfo span.user img{width:16px; margin:0 7px 0 0; vertical-align:middle;}
+
+.vcontent .detail-content{
+	padding:10px 0 5px; float:left; 
+	width:560px; background:#EDD9C7; 
+	border-radius:5px; padding:5px 10px 10px;
+	margin-top:5px;
+}
+.vcontent .detail-content .toptitle h1{font-size:12pt; color:#F77A00;}
+.vcontent .detail-content .vdcontent{
+	padding:10px 10px 15px;
+	font-size:11pt
+}
+.vcontent .detail-content .moreinfo{float:right; margin:5px 0}
+.vcontent .detail-content .moreinfo span{border-right:1px solid #C60; padding:0px 5px; line-height:16px;}
+.vcontent .detail-content .moreinfo span:last-child{border:none}
+.vcontent .detail-content .moreinfo span.user{font-weight:bold}
+.vcontent .detail-content .moreinfo span.user img{margin: 0 7px 0 0;vertical-align: middle;width: 16px;}
+.vcontent .detail-content .vcomment{width:560px; border-top:1px dotted #FF7B00; float:left; margin:5px 0 10px}
+.vcontent .detail-content .vcomment h2{margin:5px 0; font-size:14px;}
+.vcontent .detail-content .vcomment .frbinhluan{margin:7px 0 0}
+.vcontent .detail-content .vcomment .frbinhluan p a{font-weight:bold;}
+.vcontent .detail-content .vcomment .frbinhluan textarea{
+	width:540px; height:45px; background:#F5F5F5; 
+	padding:5px 10px; font-size:12px; 
+	font-family:Tahoma, arial;
+}
+.vcontent .detail-content .vcomment .frbinhluan input[type="submit"]{
+	background:#F77A00; color:#fff; 
+	width:80px; cursor:pointer; 
+	margin:5px 0; border-radius:5px; padding:3px 0;
+	font-weight:bold;
+}
+.vcontent .detail-content .vcomment .list-comment{}
+.vcontent .detail-content .vcomment .list-comment li{float:left; width:550px; background:#F9E7D6; padding:5px; margin:5px 0; position:relative;}
+.vcontent .detail-content .vcomment .list-comment li h2{margin:0 0 5px}
+.vcontent .detail-content .vcomment .list-comment li .del_button{position:absolute; width:20px; height:20px; top:2px; right:-2px}
+.vcontent .detail-content .vcomment .list-comment li .del_button a.del_comment{font-weight:bold; text-decoration:none; cursor:pointer; color:#F77A00}
+.vcontent .detail-content .vcomment .list-comment li p{margin:0;}
+.vcontent .detail-content .vcomment .list-comment li img{width:64px; float:left; margin:0 5px 0 0}
+.vcontent .detail-content .vcomment .list-comment li .cmt_info{margin-top:5px;}
+
+.vcontent .other-content{border-top:1px dotted #FF7B00}
+.vcontent .other-content h2{font-size:12pt; color:#F77A00; margin:5px 0 7px;}
+.vcontent .other-content ul{}
+.vcontent .other-content li{display:list-item; list-style:circle inside; margin:3px 0 5px 10px}
+
+.vcontent .post-content{width:560px; float:left; padding:10px 10px 20px;}
+.vcontent .post-content .item-input{clear:both; margin:5px 0; float:left; line-height:28px;}
+.vcontent .post-content .item-input .p-title{
+	width:70px;	
+	float:left;
+	text-align:right;
+	margin-right:15px;
+}
+.vcontent .post-content .item-input .p-title b.star{font-weight:bold; color:red; margin:0 2px}
+.vcontent .post-content .item-input .c-input{
+	float:left;
+}
+
+.vcontent .post-content .item-input .c-input input{
+	border: 1px solid #E1E1E1;
+	height: 25px;
+	padding: 0 2px;
+	line-height:20px;
+	width:250px;
+	float:left
+}
+.vcontent .post-content .item-input .c-input textarea{font-family:Tahoma, Arial; color:#595959; font-size:100%; border:1px solid #E1E1E1;}
+.vcontent .post-content .item-input .c-input .verror{color:red; float:left; width:160px; margin-left:10px; display:none;}
+.vcontent .post-content .item-input .c-input span{line-height:28px; float:left;}
+.vcontent .post-content .item-input .c-input input[type="radio"]{
+	width:20px; float:left;
+}
+.vcontent .post-content .item-input .c-input input[type="submit"]{
+	background:#F77A00; color:#fff; width:100px; cursor:pointer;
+}
+
+.vcontent #thongbao{
+	background:#EBF8A4 url(images/s_success.png) no-repeat 5px 50%;
+	border:solid 1px #A2D246;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	box-shadow: 0 1px 1px #FFFFFF inset;
+	margin: 0.5em 0 1.3em;
+	padding: 10px 10px 10px 25px;
+}
+
+

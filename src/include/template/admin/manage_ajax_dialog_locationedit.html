@@ -1,0 +1,25 @@
+
+<div id="order-pay-dialog" class="order-pay-dialog-c" style="width:380px;">
+	<h3><span id="order-pay-dialog-close" class="close" onclick="return X.boxClose();">Đóng</span>${$location?'Sửa':'Thêm mới'} {$local[1]}</h3>
+	<div style="overflow-x:hidden;padding:10px;">
+	<p>Tên và tên không dấu là những mục yêu cầu nhập</p>
+<form method="post" action="/manage/location/edit.php" class="validator">
+	<input type="hidden" name="id" value="{$location['id']}" />
+	<input type="hidden" name="zone" value="{$location[0]}" />
+	<table width="96%" class="coupons-table">
+		<tr><td width="80" nowrap><b>Tên khu vực</b></td><td><input type="text" name="name" value="{$location['name']}" require="true" datatype="require" class="f-input" /></td></tr>
+		<!--{if $local[0]=='district'}-->
+		<tr><td nowrap><b>Tỉnh:</b></td><td><select name="province" class="f-input" style="width:156px;">${Utility::Option($provinces,$location['pid'])}</select></td></tr>
+		<!--{/if}-->
+		<!--{if $local[0]=='ward'}-->
+		<tr><td nowrap><b>Tỉnh thành</b></td><td><select name="province" id="province" class="f-input" style="width:156px;">${Utility::Option($provinces,$location['pid'])}</select></td></tr>
+		<tr><td nowrap><b>Quận huyện</b></td><td><select name="district" id="district" class="f-input" style="width:156px;">${Utility::Option($districts}</select></td></tr>
+		<!--{/if}-->
+		<tr><td nowrap><b>Hiển thị(Y/N)</b></td><td><input type="text" name="display" value="{$location['display']}" class="f-input" style="text-transform:uppercase;"/></td></tr>
+		<tr><td nowrap><b>Sắp xếp (giảm dần)</b></td><td><input type="text" name="sort" value="${intval($location['sort'])}" class="f-input" /></td></tr>
+		<tr><td colspan="2" height="10">&nbsp;</td></tr>
+		<tr><td></td><td><input type="submit" value="Đồng ý" class="formbutton" /></td></tr>
+	</table>
+</form>
+	</div>
+</div>

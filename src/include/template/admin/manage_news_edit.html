@@ -1,0 +1,124 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+
+<div id="bd" class="cf">
+
+<div id="partner">
+
+	<div id="content" class="clear mainwide">
+
+        <div class="clear box">
+
+            <div class="box-top"></div>
+
+            <div class="box-content">
+
+                <div class="head">
+                  <h2>
+				  ${$id?'Chỉnh sửa':'Thêm mới'}
+				  </h2></div>
+
+                <div class="sect">
+
+                    <form method="post" action="{$_SERVER['PHP_SELF']}" enctype="multipart/form-data" class="validator">
+
+                    <input type="hidden" name="id" value="{$_GET['id']}">
+
+						<div class="wholetip clear"><h3>1. Thông tin </h3></div>
+                        
+                        <div class="field">
+                        	<label>Chuyên mục</label>
+                            <select name="cate_id_info" class="f-city">${Utility::Option($cate_news, $getnews['cate_id'])}</select>
+                        </div>
+                        <div class="field">
+                        	<label>Tiêu đề</label>
+                            <input type="text" name="title_info" value="{$getnews['title']}" require="true" datatype="require" class="f-input" style="width:608px;" />
+                        </div>
+                        <div class="field">
+                        	<label>Mô tả</label>
+                        	<textarea style="width:600px; height:70px;" name="news_desc_info" class="f-textarea">${htmlspecialchars($getnews['news_desc'])}</textarea>
+                        </div>
+                        
+                       	<div class="field">
+
+                            <label>Ảnh đại diện</label>
+
+                            <input type="file" size="30" name="upload_image_info" id="news-image-upload" class="f-input" />
+
+                            <!-- ${if (!empty($getnews['image']))}--> <span class="hint"><a href="/static/{$getnews['image']}" target="_blank">{$getnews['image']}</a></span>
+
+                        </div>                        
+
+                        <div class="field">
+                        
+                            <label>Chi tiết</label>
+                            
+                            <div style="width: 80%; float:left;">{$detail}</div>
+                            
+                        </div>
+
+  	                    <div class="field">
+
+                            <label>Sắp xếp</label>
+
+                            <input type="text" size="3" name="sort_order_info" value="{$getnews['sort_order']}" require="true" datatype="require" maxLength="3" class="f-input" style="width:100px;" />
+
+                            <span class="inputtip"><font color="red">Số càng lớn thì độ ưu tiên càng cao</font></span>
+
+                        </div>
+                        
+  	               
+
+                        <div class="field">
+                        	<label>Hiển thị</label>
+                            <!--{if $getnews['display']='Y'}-->
+                        	<input type="radio" checked="checked" value="Y" name="display_info">Có
+                        	<input type="radio" value="N" name="display_info">không
+                            <!--{else}-->
+                            <input type="radio" value="Y" name="display_info">Có
+                        	<input type="radio" checked="checked" value="N" name="display_info">không
+                            <!--{/if}-->
+
+                        </div>  
+					<div class="wholetip clear"><h3>2. Thông tin SEO</h3></div>
+                    <!--
+					<div class="field">
+						<label>SEO Tiêu đề</label>
+						<input type="text" size="30" name="seo_title" id="team-create-title" class="f-input" value="{$getnews['seo_title']}" />
+					</div>-->
+					<div class="field">
+						<label>SEO từ khoá</label>
+						<input type="text" size="30" name="seo_keyword" id="team-create-keyword" class="f-input" value="{$getnews['seo_keyword']}" />
+					</div>
+					<div class="field">
+						<label>SEO mô tả</label>
+						<div style="float:left;"><textarea cols="45" rows="5" name="seo_description" id="team-create-description" class="f-textarea">${htmlspecialchars($getnews['seo_description'])}</textarea></div>
+					</div>	
+                        <div class="act">
+
+                            <input type="submit" value="Cập nhật" name="${$id?'edit':'createnew'}" class="formbutton"/>
+
+                            <input type="reset" value="Làm lại" id="clear" name="clear" class="formbutton"/>
+
+                        </div>
+
+                    </form>                  
+                </div>
+
+            </div>
+
+            <div class="box-bottom"></div>
+
+        </div>
+
+	</div>
+
+
+</div>
+
+</div> <!-- bd end -->
+
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

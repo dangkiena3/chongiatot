@@ -1,0 +1,10 @@
+<li class="list_cmt{$vcomment['id']}">
+    <img src="${team_image($login_user['avatar'])}" width="64" />
+    <h2>{$login_user['realname']}</h2>
+	<span class="del_button"><a id="{$vcomment['id']}" class="del_comment">X</a></span>
+    <p>{$vcomment['content']}</p>
+    <div class="cmt_info">
+        <span>${Utility::HumanTime($vcomment['create_time'])}</span>
+    </div>
+</li>
+

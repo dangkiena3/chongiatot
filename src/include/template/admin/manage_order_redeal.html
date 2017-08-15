@@ -1,0 +1,49 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_order('redeal')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>Đặt mua lại</h2>
+                   
+				</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr><th width="200">Deal</th>
+					<th width="200">Khách hàng</th>
+					<th width="200">Địa chỉ</th>
+					<th width="80">Duyệt</th>
+					<th width="80">Ngày</th>
+					<th width="100">Tác vụ</th></tr>
+					<!--{loop $asks $index $one}-->
+					<!--${$team = Table::Fetch('team', $one['team_id']);}-->
+					<tr ${$index%2?'':'class="alt"'} id="team-list-id-{$one['id']}">
+						<td nowrap>{$team['product']}</td>
+						<td>${htmlspecialchars($one['name'])}<br/>${htmlspecialchars($one['mobile'])}</td>
+						<td>${htmlspecialchars($one['address'])}
+						<br/>${htmlspecialchars($one['email'])}
+						</td>
+						<td nowrap>${$one['user_id']?$users[$one['user_id']]['username']:''}</td>
+						<td nowrap>${date('Y-n-j',$one['create_time'])}</td>
+						<td class="op" nowrap><a href="/manage/order/redeal.php?action=r&id={$one['id']}&r={$currefer}" class="remove-record">xóa</a><!--{if !$one['user_id']}-->｜<a href="/manage/order/redeal.php?action=m&id={$one['id']}&r={$currefer}">xử lý</a><!--{/if}--></td>
+					</tr>
+					<!--{/loop}-->
+					<tr><td colspan="6">{$pagestring}</tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

@@ -1,0 +1,20 @@
+Xin chào {$user['username']},<br />
+<br />
+Bạn hay ai đó đã sử dụng tính năng reset mật khẩu trên {$INI['system']['sitename']}, Vui lòng click vào link bên dưới để đặt mật khẩu mới<br>
+<br />
+<a href="{$INI['system']['wwwprefix']}/account/reset.php?code={$user['recode']}">{$INI['system']['wwwprefix']}/account/reset.php?code={$user['recode']}</a><br />
+<br />
+Hãy xóa hoặc bỏ qua Email này nếu Bạn không muốn đổi mật khẩu, Hãy liên hệ đến chúng tôi nếu Bạn gặp rắc rối về kỹ thuật xin liên hệ thông tin bên dưới:<br /><hr>
+{$INI['system']['sitename']}<br>
+<!--{if !empty($INI['system']['companyname'])}-->
+{$INI['system']['companyname']}<br>
+<!--{/if}-->
+<!--{if !empty($INI['system']['companyname'])}-->
+{$INI['system']['address']}<br>
+<!--{/if}-->
+<!--{if !empty($INI['system']['companyname'])}-->
+{$INI['system']['tel']} - 
+<!--{/if}-->
+<!--{if !empty($INI['system']['companyname'])}-->
+{$INI['system']['fax']}
+<!--{/if}-->

@@ -1,0 +1,46 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+
+<div id="bd" class="cf">
+
+<div id="partner">
+
+	<div id="content" class="clear mainwide">
+
+        <div class="clear box">
+
+            <div class="box-top"></div>
+
+            <div class="box-content">
+
+                <div class="head"><h2>Đăng ký thành công</h2></div>
+
+                <div class="sect">
+                    <p style="padding-left:20px;">
+                    Bạn đã đăng ký thành công mã code với thông tin sau:<br/>
+                    Tên miền đăng ký: {$_SERVER['SERVER_NAME']}<br />
+                    Ngày đăng ký: ${date('H:i, d-m-Y',$license_reg['time_create'])}<br />
+                    Số serial key: <strong>{$license_reg['key_license']}</strong>
+                    </p>
+                    <p style="margin:15px 20px 0">
+                    	<input type="button"  value="Trang chủ" onclick="javascript:location='/index.php'" class="formbutton" />
+                        <input type="button" value="Trang quản trị" onclick="javascript:location='/manage/index.php'" src="manage/index.php" class="formbutton" />
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="box-bottom"></div>
+
+        </div>
+
+	</div>
+
+</div>
+
+</div> <!-- bd end -->
+
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

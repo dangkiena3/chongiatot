@@ -1,0 +1,17 @@
+<!--{if $type=='child'}-->
+<select name="quan" id="quan" class="f-input"  style="width:160px;">
+	<option selected="selected" value="">--Chọn Quận Huyện--</option>
+	${Utility::Option($childs)}
+</select>
+<!--{/if}-->
+<!--{if $type=='subchild'}-->
+<select name="phuong" id="phuong" class="f-input"  style="width:160px;">
+	<option selected="selected" value="">--Chọn Phường Xã--</option>
+	${Utility::Option($childs)}
+</select>
+<!--{/if}-->
+<!--{if $type=='none'}-->
+<select name="phuong" id="phuong" class="f-input"  style="width:160px;">
+	<option selected="selected" value="">--Chọn Phường Xã--</option>
+</select>
+<!--{/if}-->

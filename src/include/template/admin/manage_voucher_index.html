@@ -1,0 +1,59 @@
+<!--{include manage_header}-->
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul>${mcurrent_order('voucher')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>Voucher Serial</h2>
+				</div>
+				<div class="sect" style="padding:5px 10px;">
+					<form method="get">
+					Mã đơn hàng: <input style="font-size: 15px;" type="text" name="ordercode" class="h-input" value="{$_GET['ordercode']}" >
+					Serial: <input style="font-size: 15px;"  type="text" name="serial" class="h-input" value="{$_GET['serial']}" >
+					<br>Thời gian thanh toán từ: <input style="font-size: 15px;" type="text" class="h-input" onFocus="WdatePicker({isShowClear:false,readOnly:true})" name="pbday" value="{$pbday}" /> - <input style="font-size: 15px;" type="text" class="h-input" onFocus="WdatePicker({isShowClear:false,readOnly:true})" name="peday" value="{$peday}" />
+					Trạng thái 
+					<select name="status">
+						<option value=0>...</option>
+						<option value=1>Tất cả</option>
+						<option value=2>Đã dùng</option>
+						<option value=3>Chưa dùng</option>
+						<option value=4>Đã huỷ</option>
+					</select>
+						<p style="margin:5px 0;">
+							<input type="submit" value="Tìm" class="formbutton"  style="padding:1px 6px;"/>
+							<input type="reset" onclick="location.href='index.php'" id="resetform" value="Reset" class="formbutton"  style="padding:1px 6px;"/>
+						</p>
+					<form>
+				</div>
+                <div class="sect">
+                <h2>Chúng ta có {$count} voucher serial - <a href="{$_SERVER['PHP_SELF']}?action=download">Tải về danh sách</a></h2>
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table" width="98%">
+					<tr class="forum_title_tr"><th width="40">###</th><th width="100px">Khách hàng</th><th width="50">Mã đơn hàng</th><th width="40" nowrap>Serial</th><th width="50" nowrap>Ngày tháng</th><th width="100px">Hành động</th></tr>
+					<!--{loop $voucher $index $one}-->
+					<tr ${$index%2?'':'class="alt"'} id="order-list-id-{$one['id']}">
+						<td>{$one['id']}</td>
+						<td>{$user[$one['user_id']]['email']}<br>{$user[$one['user_id']]['realname']}</td>
+						<td>{$order_code[$one['order_id']]['code']}</td>
+						<td><!--{if ($one['istatus']==2)}--><b style="text-decoration: line-through;color:red;">{$one['serial']}</b><!--{else}--><b style="font-size: 15px;color: green;">{$one['serial']}</b><!--{/if}--></td>
+						<td>${date('d-m-Y',$one['create_date'])}</td>
+						<td><!--{if ($one['iused']==1 && $one['istatus']!=2)}--><a style="font-size: 20px" href="#" class="ajaxlink" ask="Xin đăng nhập vào tài khoản đối tác để đặt đã dùng cho voucher này?">Chưa dùng</a><!--{else if ($one['istatus']!=1)}--><b style="font-size: 20px;color:red">Đã huỷ</b><!--{else}--><b style="font-size: 20px;color:green">Đã dùng</b><!--{/if}--></td>
+					</tr>
+					<!--{/loop}-->
+					<tr><td colspan="7">{$pagestring}</tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

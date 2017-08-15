@@ -1,0 +1,47 @@
+<div id="Container">
+    <div class="listHotDeal">
+        <!--{loop $deal_others $deal_other $one}-->
+        <div class="cate_product_item2">
+            <div class="cate_product_item_img2">
+                <a href="${rewrite_team_id($one['id'])}" target="_blank">
+                    <img alt="{$one['product']}, {$INI['system']['keywordseo']}" src="${team_image($one['image'])}" />
+                </a>
+                <div class="cate_product_delivery">
+                    <span class="cate_product_damua">&nbsp;Đã mua <span>{$one['now_number']}</span></span>
+                    <span class="cate_product_giaohang">
+                        <span class="giao_{$one['delivery_type']}"></span>
+                        {$option_giaohang[$one['delivery_type']]}
+                    </span>
+                </div>
+            </div>
+            <div class="cate_product_item_title2">
+                <a href="${rewrite_team_id($one['id'])}" target="_blank">{$one['product']}</a>
+            </div>
+            <div class="cate_product_item_info2">
+                <span class="deal_common_info2 sale_prc2">${formatMoney($one['team_price'])}đ</span> 
+                <span class="deal_common_info2 discount_percent2">
+                    <span>-${formatMoney($one['percent'])}%</span>
+                </span>
+                <span class="deal_common_info deal_cmny" style="display: none;">
+                    <span>{$one['bonus']}</span>
+                </span>
+                <span class="deal_common_info deal_number_buy2">
+                    <span>${formatMoney($one['view']+$one['pre_view'])}</span>người xem
+                </span>
+                <!--<span class="deal_timer" id="tg2-${++$count_timer2}" diff="{$one['end_time']-$daytime}">
+                    <span class="divtimer" id="timer2-{$count_timer2}"></span>
+                </span>-->
+            </div>
+        </div>
+        <!--{/loop}-->
+        <div class="clear"></div>
+    	<!--{if $page+1<=$maxpage}-->
+        <div npage="${$page+1}" class="divLoadingMore">
+            <div class="imgLoading">
+                <img width="20px" alt="loading..." src="{$template_path}/ajax-loader.gif">
+            </div>
+            <div class="title">Xem Thêm</div>
+        </div>
+        <!--{/if}-->
+    </div>
+</div>

@@ -1,0 +1,18 @@
+
+<!--{if $location=='ward'}-->
+<select name="ward"  class="f-input" style="width:210px;">
+	${Utility::Option($wards)}
+</select>
+<!--{/if}-->
+<!--{if $location=='district'}-->
+<select name="district" onchange=dochange('ward',this.value) class="f-input" style="width:210px;">
+	<option selected="selected" value="">--Chọn Quận Huyện--</option>
+	${Utility::Option($districts)}
+</select>
+<!--{/if}-->
+<!--{if $location=='provine'}-->
+<select name="province" onchange=dochange('district',this.value) class="f-input" style="width:210px;">
+		<option selected="selected" value="">--chọn Phường/Xã--</option>
+		${Utility::Option($provinces)}
+</select>
+<!--{/if}-->

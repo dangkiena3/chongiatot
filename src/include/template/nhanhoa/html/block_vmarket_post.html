@@ -1,0 +1,73 @@
+<div class="vcontent">
+	<h1 class="vtop_title">
+    	<span>Đăng tin</span>
+        <span class="vfilter">
+        	<a href="/Cho-Voucher" title="Tất cả">Tất cả</a>
+        	<a href="/Cho-Voucher/Mua" title="Mua">Mua</a>
+            <a href="/Cho-Voucher/Ban" title="Bán">Bán</a>
+            <a href="/Cho-Voucher/Dang-Tin" title="Đăng tin" class="dangtin">Đăng tin</a>
+        </span>
+  	</h1>
+    <div class="post-content">
+    	<form id="form-dang-tin" method="post" action="/Cho-Voucher/Dang-Tin">
+        	<div class="item-input">
+        		<span class="p-title">Tiêu đề <b class="star">*</b></span>
+                <span class="c-input">
+                	<input type="text" name="name_info" style="width:440px" />
+                </span>
+            </div>
+        	<div class="item-input">
+            	<span class="p-title">Loại tin <b class="star">*</b></span>
+                <span class="c-input">
+                <input type="radio" name="type_info" value="sell" checked="checked" /><span>Đăng bán</span>
+                <input type="radio" name="type_info" value="buy" /><span>Đăng mua</span>
+                </span>
+            </div>
+        	<div class="item-input">
+        		<span class="p-title">Mô tả <b class="star">*</b></span>
+                <span class="c-input">
+                	<input type="text" name="desc_info" style="width:440px; color:#595959;" />
+                    <div class="verror">Nhập tiêu đề tin rao</div>
+                </span>
+            </div>
+        	<div class="item-input">
+        		<span class="p-title">Nội dung <b class="star">*</b></span>
+                <span class="c-input">
+                	<textarea cols="50" rows="4" name="content_info" style="width:435px; padding:5px;"></textarea>
+                </span>
+            </div>
+            
+        	<div class="item-input">
+        		<span class="p-title">Từ khóa</span>
+                <span class="c-input">
+                	<input type="text" name="seokey_info" style="width:440px" />
+                </span>
+            </div>
+            
+        	<div class="item-input">
+        		<span class="p-title">&nbsp;</span>
+                <span class="c-input">
+                	<input type="submit" name="submit" value="Đăng" />
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="vads_left">
+    	<!--${
+    	$ads_vrights = DB::LimitQuery('adsense', array(
+        	'condition' => array('display'=>'Y', 'pos_ads'=>'vright'),
+            'order' => 'ORDER BY order_sort ASC, id DESC',
+			'size' => $INI['system']['vright_ads_item'],
+        ));
+        }-->
+    	<ul>
+        	<!--{loop $ads_vrights $index $one}-->
+        	<li>
+            	<a href="{$one['url']}" title="{$one['name']}" target="_blank">
+                	<img src="${team_image($one['image'])}" alt="{$one['name']} ads by {$tenngan}" width="200" />
+             	</a>
+     		</li>
+            <!--{/loop}-->
+        </ul>
+    </div>
+</div>

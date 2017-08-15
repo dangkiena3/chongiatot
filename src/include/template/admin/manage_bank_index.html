@@ -1,0 +1,65 @@
+<!--{include manage_header}-->
+
+<div id="bdw" class="bdw">
+<div id="bd" class="cf">
+<div id="coupons">
+	<div class="dashboard" id="dashboard">
+		<ul>${current_bank('index')}</ul>
+	</div>
+    <div id="content" class="coupons-box clear mainwide">
+		<div class="box clear">
+            <div class="box-top"></div>
+            <div class="box-content">
+                <div class="head">
+                    <h2>Danh sách thông báo ngân hàng</h2>
+
+				</div>
+             	<div class="tool_s">
+                    <ul>
+						<li>
+						<form action="/manage/bank/index.php" method="get">
+							Mã đơn hàng:<input type="text" name="order_code" class="h-input" >
+							Số tài khoản:<input type="text" name="bank_number" class="h-input">
+							Điện thoại:<input type="text" name="tel" class="h-input">
+							<br>Từ ngày:<input type="text" name="fromday" onfocus="WdatePicker({isShowClear:false,readOnly:true})" class="h-input" >
+							 - <input type="text" name="today" onfocus="WdatePicker({isShowClear:false,readOnly:true})" class="h-input" >
+							<input type="submit" value="Tìm" class="formbutton"  style="padding:1px 6px;"/>
+							<form>
+						</li>
+					</ul>
+				</div>
+                <div class="sect">
+					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
+					<tr class="forum_title_tr"><th width="50">ID</th><th width="200">Mã đơn hàng</th><th width="130" nowrap>Số tài khoản</th><th width="200">Tên ngân hàng</th><th width="40">Người gửi</th><th width="120">Điện thoại</th></th><th width="120">Thời gian</th><th>Trạng thái</th><th>Thao tác</th></th></tr>
+					<!--{loop $payments $index $one}-->
+					<tr ${$index%2?'':'class="alt"'} id="team-list-id-{$one['id']}">
+						<td>{$one['id']}</td>
+						<td class="op" width="150px"><a href="/ajax/manage.php?action=detailbankalert&id={$one['id']}" class="ajaxlink">{$one['code']}</a></td>
+						<td width="150px">{$one['bank_number']}</td>
+						<td width="300px">{$banks[$one['bank_id']]['bankname_short']}</td>
+						<td>{$one['sender']}</td>
+						<td>{$one['tel']}</td>
+						<td>${date('Y-m-d',$one['create_time'])}</td>
+						<td>${$one['flag']==2 ? "<img src='../../static/img/go_24.png' width='25px' alt='đã xử lý'>" : "<img src='../../static/img/new_icon.gif' width='30px' alt='chưa xử lý'>"}</td>
+						<td class="op" nowrap>
+						<!--{if $one['flag']==1}-->
+							<a href="/ajax/manage.php?action=deletebankalert&id={$one['id']}" class="ajaxlink" ask="Bạn có chắc là xoá thông báo này không?">Xoá</a> /				
+							<a href="/ajax/manage.php?action=setokbankalert&flag=yes&id={$one['id']}" class="ajaxlink" ask="Bấm OK để thiết lập thông báo này">OK</a>
+						<!-- {else} -->
+						<a href="/ajax/manage.php?action=setokbankalert&flag=no&id={$one['id']}" class="ajaxlink" ask="Bấm Not OK để không thiết lập thông báo này">Not OK</a>
+						<!--{/if}-->
+						</td>
+					</tr>
+					<!--{/loop}-->
+					<tr><td colspan="9">{$pagestring}</tr>
+                    </table>
+				</div>
+            </div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+</div>
+</div> <!-- bd end -->
+</div> <!-- bdw end -->
+
+<!--{include manage_footer}-->

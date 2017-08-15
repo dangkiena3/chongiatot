@@ -1,0 +1,15 @@
+<div id="order-pay-dialog" class="order-pay-dialog-c" style="width:500px;">
+	<h3><span id="order-pay-dialog-close" class="close" onclick="return X.boxClose();">đóng</span>Thông tin thành viên</h3>
+	<div style="overflow-x:hidden;padding:10px;">
+	<table width="96%" class="coupons-table">
+		<tr><td width="120"><b>Email: </b></td><td>{$user['email']}</td></tr>
+		<tr><td><b>Họ tên: </b></td><td>{$user['realname']}</td></tr>
+		<tr><td><b>Giới tính: </b></td><td><!--${ if($user['gender']=='M') echo "Nam";else echo "Nữ";}--></td></tr>
+		<tr><td><b>Ngày sinh: </b></td><td>{$user['birthday']}</td></tr>
+		<tr><td><b>Di động: </b></td><td>{$user['mobile']}</td></tr>
+		<tr><td><b>Địa chỉ: </b></td><td>${$user['room']?'('.$user['room'].') ':''}{$user['nohome']} {$user['address']}, ${getRecord('vncountry',$user[ward_id],'name')}, ${getRecord('vncountry',$user[dist_id],'name')}, ${getRecord('vncountry',$user[city_id],'name')}</td></tr>
+		<tr><td><b>Đăng ký lúc: </b></td><td>${date('Y-m-d H:i', $user['create_time'])}</td></tr>
+		<tr><td><b>IP đăng ký: </b></td><td>{$user['ip']}</td></tr>
+		</table>
+	</div>
+</div>
